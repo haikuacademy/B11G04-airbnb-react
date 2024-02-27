@@ -1,4 +1,4 @@
-function Home() {
+function Houses() {
   return (
     <div>
       <p>Hello from Houses!</p>
@@ -6,4 +6,6 @@ function Home() {
   )
 }
 
-export default Home
+export default Houses
+
+

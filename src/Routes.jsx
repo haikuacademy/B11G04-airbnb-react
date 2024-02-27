@@ -12,7 +12,6 @@ function Router() {
             <Routes>
                 <Route path='/' element={<Houses />} />
                 <Route path='/houses/:id' element={<House />} />
-                <Route path='/' element={<Home />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
             </Routes>

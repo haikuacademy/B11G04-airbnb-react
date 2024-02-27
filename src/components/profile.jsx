@@ -1,4 +1,4 @@
-function Home() {
+function Profile() {
   return (
     <div>
       <p>Hello from Profile!</p>
@@ -6,4 +6,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Profile

@@ -1,7 +1,7 @@
 function Home() {
   return (
     <div>
-      <p>Hello from Airbnb!</p>
+      <p>Hello from Houses!</p>
     </div>
   )
 }

@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Bookings from './components/Bookings'
 import Profile from './components/Profile'
+import Listings from './components/Listings'
 
 function Router() {
     return (
@@ -19,6 +20,7 @@ function Router() {
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/bookings' element={<Bookings />} />
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/listings' element={<Listings />} />
             </Routes>
         </BrowserRouter>
     )

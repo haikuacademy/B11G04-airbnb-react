@@ -1,5 +1,6 @@
 import Nav from './Nav'
 import Gallery from './Gallery'
+import Reviews from './Reviews'
 
 function House() {
   return (
@@ -10,14 +11,7 @@ function House() {
       <div className="grid grid-cols-3 gap-36 bg-pink-200">
         <div className="col-span-2 bg-pink-200">
           <div className="bg-pink-600">3</div>
-          <div className="flex gap-1 bg-blue-200">
-            <div className="bg-blue-600">3.1</div>
-            <div className="bg-blue-600">3.2</div>
-          </div>
-          <div className="flex gap-1 bg-blue-200">
-            <div className="bg-blue-600">5.1</div>
-            <div className="bg-blue-600">5.2</div>
-          </div>
+          <Reviews />
         </div>
         <div className="bg-pink-200">
           <div className="bg-pink-200">

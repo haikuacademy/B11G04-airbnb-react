@@ -1,6 +1,9 @@
+import Nav from './Nav'
+
 function House() {
   return (
     <div className="container mx-auto">
+      <Nav />
       <div className="grid grid-cols-2 gap-5 bg-pink-200">
         <div className="bg-pink-600">1</div>
         <div className="grid grid-cols-3 gap-2 bg-pink-200">

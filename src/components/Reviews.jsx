@@ -1,22 +1,38 @@
-function Reviews() {
+function Review({ review }) {
   return (
-    <div className="grid grid-cols-3 gap-36 bg-pink-200">
-      <div className="flex flex-col col-span-2">
-        <div className="flex gap-1 bg-blue-200">
-          <div className="bg-blue-600">3.1</div>
-          <div className="bg-blue-600">3.2</div>
-        </div>
-        <div className="flex gap-1 bg-blue-200">
-          <div className="bg-blue-600">5.1</div>
-          <div className="bg-blue-600">5.2</div>
+    <div className="p-4 rounded border-2 ">
+      <div className="flex ">
+        <div className="bg-blue-600">{review}</div>
+        <div className="flex flex-col">
+          <p className="font-thin inline">Date</p>
+          <p className="inline">Name</p>
         </div>
       </div>
-      <div className="bg-pink-200">
-        <div className="flex justify-between bg-blue-200">
-          <div className="bg-blue-600">4.1</div>
-          <div className="bg-blue-600">4.2</div>
+      <div className="my-2">rating</div>
+      <p>description</p>
+    </div>
+  )
+}
+
+function Reviews() {
+  return (
+    <div className="grid grid-cols-3 gap-36 border-t-2">
+      <div className="flex flex-col col-span-2">
+        <div className="bg-white m-6">
+          <h1 className="text-lg bold">34 Reviews</h1>
+          <p>4.5</p>
+          <div className="flex flex-col gap-1 ">
+            <Review review={5.1} />
+            <Review review={5.2} />
+          </div>
         </div>
-        <div className="bg-pink-600">6</div>
+      </div>
+      <div className=" m-6">
+        <div className="p-4 rounded border-2 m-2">
+          <h2>Leave a Review</h2>
+          <p>0</p>
+          <input type="text" />
+        </div>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ function Listings() {
         <div className="bg-pink-600">1</div>
         <div className="bg-pink-600">2</div>
       </div>
-      <div className="grid grid-cols-5 gap-4 bg-pink-200">
+      <div className="grid grid-cols-5 gap-4">
         <HouseCard />
         <HouseCard />
         <HouseCard />

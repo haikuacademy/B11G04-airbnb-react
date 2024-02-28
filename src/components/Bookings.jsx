@@ -1,17 +1,18 @@
 import Nav from './Nav'
+import HouseCard from './HouseCard'
 
 function Bookings() {
   return (
     <div className="container mx-auto">
       <Nav />
       <div className="grid grid-cols-5 gap-4 bg-pink-200">
-        <div className="bg-pink-600">1</div>
-        <div className="bg-pink-600">2</div>
-        <div className="bg-pink-600">3</div>
-        <div className="bg-pink-600">4</div>
-        <div className="bg-pink-600">5</div>
-        <div className="bg-pink-600">6</div>
-        <div className="bg-pink-600">7</div>
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
       </div>
     </div>
   )

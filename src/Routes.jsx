@@ -14,8 +14,8 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Houses />} />
-        <Route path="/house/:id" element={<House />} />
-        <Route path="/house/:id/edit" element={<HouseEdit />} />
+        <Route path="/houses/:id" element={<House />} />
+        <Route path="/houses/:id/edit" element={<HouseEdit />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/bookings" element={<Bookings />} />

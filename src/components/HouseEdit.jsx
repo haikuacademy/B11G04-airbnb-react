@@ -4,9 +4,9 @@ function HouseEdit() {
   return (
     <div className="container mx-auto">
       <Nav />
-      <div className="grid grid-cols-2 gap-20 bg-pink-200">
-        <div className="bg-pink-600">1</div>
-        <div className="bg-pink-600">2</div>
+      <div className="grid grid-cols-2 gap-20 ">
+        <div>1</div>
+        <div>2</div>
       </div>
     </div>
   )

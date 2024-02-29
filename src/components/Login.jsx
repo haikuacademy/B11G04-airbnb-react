@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Login() {
   return (
     <div className="flex mx-auto justify-center m-20 rounded-lg">
@@ -30,8 +32,15 @@ function Login() {
         </div>
         <div className="flex justify-start m-3 pb-3 text-xs">
           <div>New to Airbnb?</div>
-          <div className="text-red-500 ; underline md:underline-offset-2 ">
-            Create an Account
+          <div>
+            <Link
+              to="/Signup"
+              className="text-red-500 ; text-xs ; underline
+              md:underline-offset-2 "
+            >
+              {' '}
+              Creat an Account
+            </Link>
           </div>
         </div>
       </div>

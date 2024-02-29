@@ -13,23 +13,25 @@ function Nav() {
         </Link>
       </div>
       <div className="flex mt-3 mb-1 gap-1">
-        <Link
-          to="/bookings"
-          className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]"
-        >
-          My Bookings
+        <Link to="/bookings">
+          <div className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]">
+            My Bookings
+          </div>
         </Link>
-        <Link
-          to="/listings"
-          className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]"
-        >
-          My Listings
+        <Link to="/listings">
+          <div className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]">
+            My Listings
+          </div>
         </Link>
-        <Link
-          to="/profile"
-          className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]"
-        >
-          Profile
+        <Link to="/profile">
+          <div className="flex justify-between gap-1 border rounded px-2 py-1 hover:border-[#fb7185]">
+            <img
+              src="https://randomuser.me/api/portraits/men/84.jpg"
+              alt="User profile pic"
+              className="rounded-full h-5 w-5 border"
+            />
+            <span className="text-sm">Profile</span>
+          </div>
         </Link>
       </div>
     </div>

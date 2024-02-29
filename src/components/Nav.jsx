@@ -15,17 +15,20 @@ function Nav() {
       <div className="flex mt-3 mb-1 gap-1">
         <Link
           to="/bookings"
-          className="inline border rounded text-sm px-2 py-1"
+          className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]"
         >
           My Bookings
         </Link>
         <Link
           to="/listings"
-          className="inline border rounded text-sm px-2 py-1"
+          className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]"
         >
           My Listings
         </Link>
-        <Link to="/profile" className="inline border rounded text-sm px-2 py-1">
+        <Link
+          to="/profile"
+          className="inline border rounded text-sm px-2 py-1 hover:border-[#fb7185]"
+        >
           Profile
         </Link>
       </div>

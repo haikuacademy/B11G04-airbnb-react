@@ -1,3 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faStar,
+  faStarHalf,
+  faCommentDots
+} from '@fortawesome/free-solid-svg-icons'
+import { comment } from 'postcss'
 import { Link } from 'react-router-dom'
 
 function HouseCard() {
@@ -14,8 +21,22 @@ function HouseCard() {
         <span className="text-sm text-slate-400">2 rooms · 2 bathrooms</span>
         <h5 className="text-lg font-bold">$120</h5>
         <div className="flex justify-between">
-          <div>4.5</div>
-          <div>34</div>
+          <div>
+            <span>
+              <FontAwesomeIcon className="text-yellow-500" icon={faStar} />
+              <FontAwesomeIcon className="text-yellow-500" icon={faStar} />
+              <FontAwesomeIcon className="text-yellow-500" icon={faStar} />
+              <FontAwesomeIcon className="text-yellow-500" icon={faStarHalf} />
+            </span>
+            4.5
+          </div>
+          <div>
+            34{' '}
+            <FontAwesomeIcon
+              className="text-transoarent"
+              icon={faCommentDots}
+            />
+          </div>
         </div>
       </Link>
     </div>

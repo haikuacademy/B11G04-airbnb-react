@@ -36,23 +36,23 @@ function House() {
             </div>
           </div>
         </div>
-
-        <div className="text-sm">
-          <p>
-            Nestled gracefully against the azure embrace of the ocean, the
-            beautiful house exudes timeless charm and tranquility. Its weathered
-            cedar exterior echoes the hues of the surrounding sand and sky,
-            blending seamlessly with the coastal landscape. Large windows adorn
-            its façade, inviting the golden sunlight to dance within its airy
-            confines. A spacious deck overlooks the endless expanse of turquoise
-            waters, offering panoramic views of rolling waves and distant
-            horizons. Inside, the interiors are bathed in natural light, adorned
-            with rustic furnishings and nautical accents that evoke a sense of
-            seaside serenity. This coastal haven whispers tales of peace and
-            rejuvenation.
-          </p>
-        </div>
       </div>
+      <div className="text-sm mt-4 w-2/3">
+        <p>
+          Nestled gracefully against the azure embrace of the ocean, the
+          beautiful house exudes timeless charm and tranquility. Its weathered
+          cedar exterior echoes the hues of the surrounding sand and sky,
+          blending seamlessly with the coastal landscape. Large windows adorn
+          its façade, inviting the golden sunlight to dance within its airy
+          confines. A spacious deck overlooks the endless expanse of turquoise
+          waters, offering panoramic views of rolling waves and distant
+          horizons. Inside, the interiors are bathed in natural light, adorned
+          with rustic furnishings and nautical accents that evoke a sense of
+          seaside serenity. This coastal haven whispers tales of peace and
+          rejuvenation.
+        </p>
+      </div>
+
       <Reviews />
     </div>
   )

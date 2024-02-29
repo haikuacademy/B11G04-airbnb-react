@@ -4,7 +4,7 @@ function Gallery() {
       <img
         src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
         alt="House 1 image 1"
-        className="rounded"
+        className="rounded h-full"
       />
       <div className="grid grid-cols-3 gap-2">
         <img

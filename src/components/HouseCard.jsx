@@ -5,12 +5,14 @@ import {
   faCommentDots
 } from '@fortawesome/free-solid-svg-icons'
 import { comment } from 'postcss'
+import { Link } from 'react-router-dom'
 
 function HouseCard() {
   return (
-    <div className=" border rounded">
-      <img
-        src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png
+    <div className=" border rounded hover:shadow">
+      <Link to="/houses/1">
+        <img
+          src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png
 "
         className="border rounded"
         alt=""

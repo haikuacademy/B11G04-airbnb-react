@@ -1,11 +1,11 @@
 function Gallery() {
   return (
-    <div className="grid grid-cols-2 gap-5 bg-pink-200">
+    <div className="grid grid-cols-2 gap-5">
       <img
         src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
         alt="House 1 image 1"
       />
-      <div className="grid grid-cols-3 gap-2 bg-pink-200">
+      <div className="grid grid-cols-3 gap-2">
         <img
           src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
           alt="House 1 image 1"

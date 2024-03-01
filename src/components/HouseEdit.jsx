@@ -69,6 +69,8 @@ function HouseEdit() {
                 value="https://www.haikuacademy.com/photos/09.png"
               />
             </div>
+            <button>Save changes</button>
+            <button>Cancel</button>
           </div>
         </form>
       </div>

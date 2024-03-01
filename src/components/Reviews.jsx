@@ -4,7 +4,6 @@ import {
   faStarHalf,
   faComment
 } from '@fortawesome/free-solid-svg-icons'
-// import { faHouse } from '@fortawesome/free-regular-svg-icons'
 
 function Review() {
   return (
@@ -12,12 +11,6 @@ function Review() {
       <div className="flex ">
         <div className="flex flex-col">
           <div className="flex">
-            <img
-              src="https://randomuser.me/api/portraits/men/84.jpg"
-              alt="Mike Lino"
-              className="rounded-full h-10 w-10 mr-2"
-            />
-
             <div className="flex flex-col">
               <p className="font-thin inline">24 Jan 2024</p>
               <p>Mike Lino</p>

@@ -28,10 +28,15 @@ function Reviews() {
         </div>
       </div>
       <div className=" m-6">
-        <div className="p-4 rounded border-2 m-2">
-          <h2>Leave a Review</h2>
-          <p>0</p>
-          <input type="text" />
+        <div className="p-4 rounded border border-gray-300">
+          <div>Leave a Review</div>
+          <form>
+            <div>0</div>
+            <div>
+              <input type="text" />
+            </div>
+            <div className="text-white bg bg-red-500">Submit Review</div>
+          </form>
         </div>
       </div>
     </div>

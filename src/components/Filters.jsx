@@ -11,9 +11,9 @@ function Filters() {
     <form>
       <div className="flex justify-between bg-slate-100 p-2 my-2 gap-2">
         {/* Location */}
-        <div className="flex-1 justify-between bg-white px-2 py-2 border rounded w-full">
+        <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faHouse} className="mr-2" />
-          <select className="bg-white text-sm text-black font-semibold">
+          <select className=" bg-white text-sm text-black font-semibold flex-1">
             <option selected>Any Location</option>
             <option>Bali</option>
             <option>Koh Phangan</option>
@@ -21,9 +21,9 @@ function Filters() {
           </select>
         </div>
         {/* Rooms */}
-        <div className="flex-1 justify-between bg-white px-2 py-2 border rounded w-full">
+        <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faBed} className="mr-2" />
-          <select className="bg-white text-sm text-black font-semibold">
+          <select className="bg-white text-sm text-black font-semibold flex-1">
             <option selected>Any Rooms</option>
             <option>1 Room</option>
             <option>2 Rooms</option>
@@ -31,14 +31,14 @@ function Filters() {
           </select>
         </div>
         {/* Max Price */}
-        <div className="flex-1 justify-between bg-white px-2 py-2 border rounded w-full">
+        <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faDollarSign} className="mr-2" />
-          <input type="number" placeholder="max price" />
+          <input type="number" placeholder="max price" className="flex-1" />
         </div>
         {/* Sort By */}
-        <div className="flex-1 justify-between bg-white px-2 py-2 border rounded w-full">
+        <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faSort} className="mr-2" />
-          <select className="bg-white text-sm text-black font-semibold">
+          <select className="bg-white text-sm text-black font-semibold flex-1">
             <option selected>sort by</option>
             <option>Price (low to high)</option>
             <option>Price (high to low)</option>

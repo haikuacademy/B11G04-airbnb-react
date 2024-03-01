@@ -4,25 +4,47 @@ function HouseEdit() {
   return (
     <>
       <Nav />
-      <div className="container mx-auto">
+      <div className="container mx-auto border rounded">
         <form>
-          <h5>Edit your Listing</h5>
-          <div className="grid grid-cols-2 gap-20 ">
+          <h5 className="m-4">Edit your Listing</h5>
+          <div className="m-3 grid grid-cols-2">
             <div>
-              <label>Location</label>
-              <select>
+              <label className="block text-xs text-slate-400 m-1">
+                Location
+              </label>
+              <select className="border rounded text-sm bg-white m-1">
                 <option selected>Bali</option>
                 <option>Koh Phangan</option>
                 <option>Phuket</option>
               </select>
-              <label>Bedrooms</label>
-              <input type="number" value="3" />
-              <label>Bathrooms</label>
-              <input type="number" value="2" />
-              <label>Price per Night</label>
-              <input type="number" value="140" />
-              <label>Description</label>
-              <textarea rows="4">
+              <label className="block text-xs text-slate-400  m-1">
+                Bedrooms
+              </label>
+              <input
+                type="number"
+                value="3"
+                className="border rounded text-sm m-1"
+              />
+              <label className="block text-xs text-slate-400 m-1">
+                Bathrooms
+              </label>
+              <input
+                type="number"
+                value="2"
+                className="border rounded text-sm m-1"
+              />
+              <label className="block text-xs text-slate-400 m-1">
+                Price per Night
+              </label>
+              <input
+                type="number"
+                value="140"
+                className="border rounded text-sm m-1"
+              />
+              <label className="block text-xs text-slate-400 m-1">
+                Description
+              </label>
+              <textarea className="border rounded text-sm m-1" rows="4">
                 This enchanting Airbnb villa in Bali offers an exquisite blend
                 of traditional Balinese architecture and modern luxury. Tucked
                 away in lush tropical greenery, the villa features a stunning
@@ -31,46 +53,61 @@ function HouseEdit() {
               </textarea>
             </div>
             <div>
-              <label>Photos</label>
+              <label className="block text-xs text-slate-400 m-1">Photos</label>
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/01.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/02.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/03.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/04.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/05.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/06.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/07.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/08.png"
+                className="border rounded text-sm m-1"
               />
               <input
                 type="text"
                 value="https://www.haikuacademy.com/photos/09.png"
+                className="border rounded text-sm m-1"
               />
             </div>
-            <button>Save changes</button>
-            <button>Cancel</button>
+          </div>
+          <div className="flex justify-start">
+            <button className="flex-1 bg-[#fb7185] text-sm text-white px-3 py-2 mt-4 ml-3 mr-2 mb-4 rounded">
+              Save changes
+            </button>
+            <button className="flex-1 border bg-white text-sm text-black px-3 py-2 mt-4 mb-4 rounded">
+              Cancel
+            </button>
           </div>
         </form>
       </div>

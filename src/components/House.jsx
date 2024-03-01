@@ -2,6 +2,40 @@ import Nav from './Nav'
 import Gallery from './Gallery'
 import Reviews from './Reviews'
 
+function BookHouse() {
+  return (
+    <form className="border-2 p-4 x-20 border-gray-300 rounded">
+      <div className="text-sm pb-1 text-lg">
+        <strong className="text-lg">$120</strong>/night
+        <div className="flex py-2">
+          <div className="flex flex-col">
+            <label>Check-in</label>
+            <input className="border-2 p-2 my-2 mr-2 rounded" type="date" />
+          </div>
+          <div className="flex flex-col">
+            <label>Check-out</label>
+            <input className="border-2 p-2 my-2 rounded" type="date" />
+          </div>
+        </div>
+        <textarea
+          className="border-2 w-full p-2"
+          cols="30"
+          rows="7"
+          placeholder="Please send a message to the host..."
+        ></textarea>
+        <div className="flex justify-between">
+          <div className="text-lg">
+            3 nights = <strong>$360</strong>
+          </div>
+          <button className="rounded p-2 bg-pink-500 text-white bg-[#FB7185]">
+            Reserve
+          </button>
+        </div>
+      </div>
+    </form>
+  )
+}
+
 function House() {
   return (
     <div className="container mx-auto">
@@ -14,19 +48,7 @@ function House() {
           <div className="text-lg font-bold">Phuket, Thailand</div>
           <div className="text-sm text-slate-400">2 rooms . 2 bathrooms</div>
         </div>
-        <div className="border p-1 x-20 border-gray-300">
-          <div className="text-sm">
-            <strong>$120</strong>/night
-            {/* </div> */}
-            <div className="flex justify-between">
-              <div className="text-sm">
-                3 nights = <strong>$360</strong>
-              </div>
-              <div className="text-sm bg-blue-500">4.2</div>
-            </div>
-          </div>
-        </div>
-
+        <BookHouse />
         <div className="flex justify start">
           <div className="text-sm">3.1</div>
           <div className="">

@@ -42,39 +42,45 @@ function House() {
       <Nav />
       <Gallery />
 
-      <div className="grid grid-cols-3 gap-36">
+      <div className="grid grid-cols-3 gap-36 pb-10 mx-2">
         <div className="col-span-2">
           {/* <div className=""> */}
-          <div className="text-lg font-bold">Phuket, Thailand</div>
-          <div className="text-sm text-slate-400">2 rooms . 2 bathrooms</div>
-        </div>
-        <BookHouse />
-        <div className="flex justify start">
-          <div className="text-sm">3.1</div>
-          <div className="">
-            <div className="text-sm">Hosted by</div>
-            <div className="text-sm">
-              <strong>Linda Smith</strong>
+          <div className="text-lg font-bold my-4">Phuket, Thailand</div>
+          <div className="text-sm text-slate-400  my-4">
+            2 rooms . 2 bathrooms
+          </div>
+          <div className="flex justify-start  my-4">
+            <img
+              src="https://randomuser.me/api/portraits/women/85.jpg
+"
+              className="rounded-full mr-2 h-12"
+              alt="Linda Smith"
+            />
+            <div>
+              <div className="text-sm">Hosted by</div>
+              <div className="text-sm">
+                <strong>Linda Smith</strong>
+              </div>
             </div>
           </div>
+          <div className="text-sm my-4">
+            <p>
+              Nestled gracefully against the azure embrace of the ocean, the
+              beautiful house exudes timeless charm and tranquility. Its
+              weathered cedar exterior echoes the hues of the surrounding sand
+              and sky, blending seamlessly with the coastal landscape. Large
+              windows adorn its façade, inviting the golden sunlight to dance
+              within its airy confines. A spacious deck overlooks the endless
+              expanse of turquoise waters, offering panoramic views of rolling
+              waves and distant horizons. Inside, the interiors are bathed in
+              natural light, adorned with rustic furnishings and nautical
+              accents that evoke a sense of seaside serenity. This coastal haven
+              whispers tales of peace and rejuvenation.
+            </p>
+          </div>
         </div>
+        <BookHouse />
       </div>
-      <div className="text-sm mt-4 w-2/3">
-        <p>
-          Nestled gracefully against the azure embrace of the ocean, the
-          beautiful house exudes timeless charm and tranquility. Its weathered
-          cedar exterior echoes the hues of the surrounding sand and sky,
-          blending seamlessly with the coastal landscape. Large windows adorn
-          its façade, inviting the golden sunlight to dance within its airy
-          confines. A spacious deck overlooks the endless expanse of turquoise
-          waters, offering panoramic views of rolling waves and distant
-          horizons. Inside, the interiors are bathed in natural light, adorned
-          with rustic furnishings and nautical accents that evoke a sense of
-          seaside serenity. This coastal haven whispers tales of peace and
-          rejuvenation.
-        </p>
-      </div>
-
       <Reviews />
     </div>
   )

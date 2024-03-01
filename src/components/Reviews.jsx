@@ -1,7 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faPen, faStar } from '@fortawesome/free-solid-svg-icons'
+
 function Review({ review }) {
   return (
-    <div className="p-4 rounded border-2 ">
-      <div className="flex ">
+    <div className="p-4 rounded-md ">
+      <div className="">
         <div className="bg-blue-600">{review}</div>
         <div className="flex flex-col">
           <p className="font-thin inline">Date</p>
@@ -16,7 +19,7 @@ function Review({ review }) {
 
 function Reviews() {
   return (
-    <div className="grid grid-cols-3 gap-36 border-t-2">
+    <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">
         <div className="bg-white m-6">
           <h1 className="text-lg bold">34 Reviews</h1>
@@ -31,11 +34,24 @@ function Reviews() {
         <div className="p-4 rounded border border-gray-300">
           <div>Leave a Review</div>
           <form>
-            <div>0</div>
-            <div>
-              <input type="text" />
+            <div className="mt-2">
+              <FontAwesomeIcon icon={faStar} />
             </div>
-            <div className="text-white bg bg-red-500">Submit Review</div>
+            <div className="border rounded border-gray-300 mt-3">
+              <div className="">
+                <textarea
+                  rows="4"
+                  className="bg-transparent resize-none outline-none text-gray-300"
+                >
+                  Please leave a review...
+                </textarea>
+              </div>
+            </div>
+            <button>
+              <div className=" border border-rounded text-white bg-red-500 mt-4 p-4 rounded-md ">
+                Submit Review
+              </div>
+            </button>
           </form>
         </div>
       </div>

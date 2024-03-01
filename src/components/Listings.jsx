@@ -48,15 +48,11 @@ function EditListing() {
   )
 }
 
->>>>>>> Stashed changes
 function Listings() {
   return (
     <div className="container mx-auto">
       <Nav />
-      <div className="grid grid-cols-2 gap-20 ">
-        <div>1</div>
-        <div>2</div>
-      </div>
+      <EditListing />
       <div className="grid grid-cols-5 gap-4">
         <HouseCard />
         <HouseCard />

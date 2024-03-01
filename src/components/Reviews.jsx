@@ -1,11 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faStar,
-  faStarHalf,
-  faComment
-} from '@fortawesome/free-solid-svg-icons'
-// import { faHouse } from '@fortawesome/free-regular-svg-icons'
-
 function Review() {
   return (
     <div className="p-4 rounded border-2 ">
@@ -25,13 +17,8 @@ function Review() {
           </div>
         </div>
       </div>
-      <div className="my-2 flex items-center">
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <div className="font-bold px-1">4</div>
-      </div>
+
+      <div className="font-bold px-1">4</div>
       <p>
         Great place to stay! The house is very clean and comfortable, and the
         location is perfect. The host was very friendly and helpful. Highly
@@ -47,17 +34,9 @@ function Reviews() {
       <div className="flex flex-col col-span-2">
         <div className=" my-6">
           <div className="flex items-center">
-            <FontAwesomeIcon
-              className="mr-2"
-              icon={faComment}
-            ></FontAwesomeIcon>
             <h1 className="text-lg font-bold">34 Reviews</h1>
           </div>
           <div className="flex items-center">
-            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-            <FontAwesomeIcon icon={faStarHalf} className="text-yellow-500" />
             <p>4.5</p>
           </div>
           <div className="flex flex-col gap-1 ">

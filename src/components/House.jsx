@@ -5,9 +5,9 @@ import Reviews from './Reviews'
 function BookHouse() {
   return (
     <form className="border-2 p-4 x-20 border-gray-300 rounded">
-      <div className="text-sm pb-1 text-lg">
+      <div className="pb-1 text-lg">
         <strong className="text-lg">$120</strong>/night
-        <div className="flex py-2">
+        <div className="flex">
           <div className="flex flex-col">
             <label>Check-in</label>
             <input className="border-2 p-2 my-2 mr-2 rounded" type="date" />
@@ -20,14 +20,14 @@ function BookHouse() {
         <textarea
           className="border-2 w-full p-2"
           cols="30"
-          rows="7"
+          rows="6"
           placeholder="Please send a message to the host..."
         ></textarea>
         <div className="flex justify-between">
           <div className="text-lg">
             3 nights = <strong>$360</strong>
           </div>
-          <button className="rounded p-2 bg-pink-500 text-white bg-[#FB7185]">
+          <button className="rounded p-2  text-white bg-red-400">
             Reserve
           </button>
         </div>

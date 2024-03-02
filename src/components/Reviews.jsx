@@ -7,37 +7,52 @@ import {
 // import { faHouse } from '@fortawesome/free-regular-svg-icons'
 
 function Review() {
+  let reviews = [
+    {
+      content:
+        'Great place to stay! The house is very clean comfortable, and the location is perfect. The host was very and helpful. Highly recommend!',
+      rating: 4,
+      date: '24 Jan 2024',
+      author: {
+        firstName: 'Mike',
+        lastName: 'Lino',
+        picture: 'https://randomuser.me/api/portraits/men/84.jpg'
+      }
+    }
+  ]
   return (
-    <div className="p-4 rounded border-2 ">
-      <div className="flex ">
-        <div className="flex flex-col">
-          <div className="flex">
-            <img
-              src="https://randomuser.me/api/portraits/men/84.jpg"
-              alt="Mike Lino"
-              className="rounded-full h-10 w-10 mr-2"
-            />
-
+    <>
+      {reviews.map((r, i) => {
+        ;<div className="p-4 rounded border-2 ">
+          <div className="flex ">
             <div className="flex flex-col">
-              <p className="font-thin inline">24 Jan 2024</p>
-              <p>Mike Lino</p>
+              <div className="flex">
+                <img
+                  src={r.picture}
+                  alt="Mike Lino"
+                  className="rounded-full h-10 w-10 mr-2"
+                />
+
+                <div className="flex flex-col">
+                  <p className="font-thin inline">{r.date}</p>
+                  <p>
+                    {r.author.firstName} {r.author.lastName}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+          <div className="my-2 flex items-center">
+            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+            <div className="font-bold px-1">4</div>
+          </div>
+          <p>{r.content}</p>
         </div>
-      </div>
-      <div className="my-2 flex items-center">
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <div className="font-bold px-1">4</div>
-      </div>
-      <p>
-        Great place to stay! The house is very clean and comfortable, and the
-        location is perfect. The host was very friendly and helpful. Highly
-        recommend!
-      </p>
-    </div>
+      })}
+    </>
   )
 }
 

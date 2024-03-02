@@ -31,14 +31,13 @@ function HouseEdit() {
             </div>
             <div className="flex flex-col my-1">
               <label>Description</label>
-              <textarea
-                className="border-2 rounded p-2"
-                rows="6"
-                value="This enchanting Airbnb villa in Bali offers an exquisite blend of traditional Balinese 
-architecture and modern luxury. Tucked away in lush tropical greenery, the villa features a 
-stunning open-air living space that allows the gentle Balinese breeze to flow through, 
-creating a tranquil and refreshing ambiance."
-              ></textarea>
+              <textarea className="border-2 rounded p-2" rows="6">
+                This enchanting Airbnb villa in Bali offers an exquisite blend
+                of traditional Balinese architecture and modern luxury. Tucked
+                away in lush tropical greenery, the villa features a stunning
+                open-air living space that allows the gentle Balinese breeze to
+                flow through, creating a tranquil and refreshing ambiance.
+              </textarea>
             </div>
             <div className="mt-6">
               <button className="rounded py-2 px-3 mr-2 text-white bg-red-400">

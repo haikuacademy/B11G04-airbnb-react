@@ -31,9 +31,6 @@ function EditListing() {
             <button className="rounded  py-2  px-3 mr-2 text-white  bg-red-400">
               List House
             </button>
-            <button className="rounded  py-2  px-3 mt-6 text-black border-2 ">
-              Cancel
-            </button>
           </div>
         </div>
         <div className="flex flex-col">

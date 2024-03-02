@@ -27,9 +27,11 @@ function EditListing() {
             <label>Description</label>
             <textarea className="border-2 rounded p-2" rows="6"></textarea>
           </div>
-          <button className="rounded p-3 mt-6 text-white w-32 bg-red-400">
-            List House
-          </button>
+          <div className=" mt-6">
+            <button className="rounded  py-2  px-3 mr-2 text-white  bg-red-400">
+              List House
+            </button>
+          </div>
         </div>
         <div className="flex flex-col">
           <div className="px-1">Photos</div>
@@ -53,7 +55,7 @@ function Listings() {
     <div className="container mx-auto">
       <Nav />
       <EditListing />
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 gap-4 mx-2">
         <HouseCard />
         <HouseCard />
         <HouseCard />

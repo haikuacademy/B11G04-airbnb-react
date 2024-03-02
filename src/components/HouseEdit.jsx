@@ -1,4 +1,5 @@
 import Nav from './Nav'
+import { Link } from 'react-router-dom'
 
 function HouseEdit() {
   return (
@@ -47,9 +48,11 @@ creating a tranquil and refreshing ambiance.
               <button className="rounded  py-2  px-3 mr-2 text-white  bg-red-400">
                 List House
               </button>
-              <button className="rounded  py-2  px-3 mt-6 text-black border-2 ">
-                Cancel
-              </button>
+              <Link to="/listings">
+                <button className="rounded  py-2  px-3 mt-6 text-black border-2 ">
+                  Cancel
+                </button>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col">

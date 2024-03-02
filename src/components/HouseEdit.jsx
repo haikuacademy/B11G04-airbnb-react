@@ -43,10 +43,11 @@ function HouseEdit() {
               <button className="rounded py-2 px-3 mr-2 text-white bg-red-400">
                 List House
               </button>
-              <Link to="/listings">
-                <button className="rounded py-2 px-3 mt-6 text-black border-2">
-                  Cancel
-                </button>
+              <Link
+                to="/listings"
+                className="rounded py-2 px-3 mt-6 text-black border-2"
+              >
+                Cancel
               </Link>
             </div>
           </div>

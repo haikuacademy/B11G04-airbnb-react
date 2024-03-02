@@ -8,7 +8,7 @@ function HouseEdit() {
         <form>
           <h5 className="m-4">Edit your Listing</h5>
           <div className="m-3 grid grid-cols-2">
-            <div>
+            <div className="flex flex-col">
               <label className="block text-xs text-slate-400 m-1">
                 Location
               </label>
@@ -52,7 +52,7 @@ function HouseEdit() {
                 flow through, creating a tranquil and refreshing ambiance.
               </textarea>
             </div>
-            <div>
+            <div className="flex flex-col">
               <label className="block text-xs text-slate-400 m-1">Photos</label>
               <input
                 type="text"
@@ -102,10 +102,10 @@ function HouseEdit() {
             </div>
           </div>
           <div className="flex justify-start">
-            <button className="flex-1 bg-[#fb7185] text-sm text-white px-3 py-2 mt-4 ml-3 mr-2 mb-4 rounded">
+            <button className="bg-[#fb7185] text-sm text-white px-3 py-2 mt-4 ml-3 mr-2 mb-4 rounded w-fit">
               Save changes
             </button>
-            <button className="flex-1 border bg-white text-sm text-black px-3 py-2 mt-4 mb-4 rounded">
+            <button className="border bg-white text-sm text-black px-3 py-2 mt-4 mb-4 rounded w-fit">
               Cancel
             </button>
           </div>

@@ -36,6 +36,14 @@ function HouseCard({ house }) {
           </div>
         </div>
       </Link>
+      {house.listing ? (
+        <span>
+          <button className="px-2 py-1 border-2 rounded  mr-1">View</button>
+          <button className="px-2 py-1 border-2 rounded">Edit</button>
+        </span>
+      ) : (
+        ''
+      )}
     </div>
   )
 }

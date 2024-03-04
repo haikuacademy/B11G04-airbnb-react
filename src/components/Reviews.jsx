@@ -4,23 +4,23 @@ import {
   faStarHalf,
   faComment
 } from '@fortawesome/free-solid-svg-icons'
-// import { faHouse } from '@fortawesome/free-regular-svg-icons'
 
-function Review() {
+function Review({ review }) {
   return (
     <div className="p-4 rounded border-2 ">
       <div className="flex ">
         <div className="flex flex-col">
           <div className="flex">
             <img
-              src="https://randomuser.me/api/portraits/men/84.jpg"
-              alt="Mike Lino"
+              src={review.author.picture}
+              alt="User profile pic"
               className="rounded-full h-10 w-10 mr-2"
             />
-
             <div className="flex flex-col">
-              <p className="font-thin inline">24 Jan 2024</p>
-              <p>Mike Lino</p>
+              <p className="font-thin inline">{review.date}</p>
+              <p>
+                {review.author.firstName} {review.author.lastName}
+              </p>
             </div>
           </div>
         </div>
@@ -30,18 +30,47 @@ function Review() {
         <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
         <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
         <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <div className="font-bold px-1">4</div>
+        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+        <div className="font-bold px-1">{review.rating}</div>
       </div>
-      <p>
-        Great place to stay! The house is very clean and comfortable, and the
-        location is perfect. The host was very friendly and helpful. Highly
-        recommend!
-      </p>
+      <p>{review.content}</p>
     </div>
   )
 }
 
 function Reviews() {
+  const reviews = [
+    {
+      content: 'Bathroom did not live up to expectations. =(',
+      rating: 2,
+      date: '2024-02-01',
+      author: {
+        firstName: 'John',
+        lastName: 'Smith',
+        picture: 'https://randomuser.me/api/portraits/men/85.jpg'
+      }
+    },
+    {
+      content: 'This place very warm, unlike Siberia!',
+      rating: 3.5,
+      date: '2024-01-10',
+      author: {
+        firstName: 'Ivan',
+        lastName: 'Ivanov',
+        picture: 'https://randomuser.me/api/portraits/men/10.jpg'
+      }
+    },
+    {
+      content: 'This place is amazing! I wanna stay here for ever. =D',
+      rating: 5,
+      date: '2024-02-05',
+      author: {
+        firstName: 'Khadira',
+        lastName: 'Khan',
+        picture: 'https://randomuser.me/api/portraits/women/15.jpg'
+      }
+    }
+  ]
   return (
     <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">
@@ -61,8 +90,9 @@ function Reviews() {
             <p>4.5</p>
           </div>
           <div className="flex flex-col gap-1 ">
-            <Review />
-            <Review />
+            {reviews.map((review, index) => (
+              <Review key={index} review={review} />
+            ))}
           </div>
         </div>
       </div>
@@ -99,4 +129,5 @@ function Reviews() {
     </div>
   )
 }
+
 export default Reviews

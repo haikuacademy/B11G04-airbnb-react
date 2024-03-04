@@ -7,7 +7,7 @@ import {
 import { comment } from 'postcss'
 import { Link } from 'react-router-dom'
 
-function BookingComponent({ booking, price }) {
+function BookingComponent({ booking }) {
   let startDate = booking.startDate.toLocaleDateString('en-us', {
     day: 'numeric',
     year: 'numeric',
@@ -19,18 +19,18 @@ function BookingComponent({ booking, price }) {
     month: 'short'
   })
 
-  let totalTime = booking.endDate.getTime() - booking.startDate.getTime()
+  // let totalTime = booking.endDate.getTime() - booking.startDate.getTime()
 
-  let totalDays = Math.round(totalTime / (1000 * 3600 * 24))
+  // let totalDays = Math.round(totalTime / (1000 * 3600 * 24))
 
   return (
     <div className="flex flex-col items-center m-3 p-2 bg-green-200">
       <span>
         {startDate} - {endDate}
       </span>
-      <span className="font-bold  text-lg">
+      {/* <span className="font-bold  text-lg">
         {totalDays} nights = ${price * totalDays}
-      </span>
+      </span> */}
     </div>
   )
 }

@@ -43,7 +43,7 @@ function Review() {
 
 function Reviews() {
   return (
-    <div className="grid grid-cols-3 gap-36 border-t-2">
+    <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">
         <div className=" my-6">
           <div className="flex items-center">
@@ -67,10 +67,33 @@ function Reviews() {
         </div>
       </div>
       <div className=" m-6">
-        <div className="p-4 rounded border-2 m-2">
-          <h2>Leave a Review</h2>
-          <p>0</p>
-          <input type="text" />
+        <div className="p-4 rounded border border-gray-300">
+          <div>Leave a Review</div>
+          <form>
+            <div className=" flex items-center text-yellow-500 mt-2">
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <div className="text-black p-2"> 0</div>
+            </div>
+            <div className="border rounded border-gray-300 mt-3">
+              <div className="">
+                <textarea
+                  rows="4"
+                  className="bg-transparent resize-none outline-none text-gray-300 p-2 "
+                >
+                  Please leave a review...
+                </textarea>
+              </div>
+            </div>
+            <button>
+              <div className=" border border-rounded text-white bg-red-400 mt-1 rounded-md py-2 px-3">
+                Submit Review
+              </div>
+            </button>
+          </form>
         </div>
       </div>
     </div>

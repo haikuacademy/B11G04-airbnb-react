@@ -1,4 +1,5 @@
 import Nav from './Nav'
+import { Link } from 'react-router-dom'
 
 function HouseEdit() {
   return (
@@ -7,7 +8,7 @@ function HouseEdit() {
       <form className="p-4 mx-2 border-2 rounded">
         <h1 className="my-1 text-2xl">List a house</h1>
         <div className="grid grid-cols-2">
-          <div className=" mr-28">
+          <div className="mr-28">
             <div className="flex flex-col my-1">
               <label>Location</label>
               <input
@@ -30,26 +31,24 @@ function HouseEdit() {
             </div>
             <div className="flex flex-col my-1">
               <label>Description</label>
-              <textarea
-                className="border-2 rounded p-2"
-                rows="6"
-                value="This enchanting Airbnb villa in Bali offers an exquisite blend of traditional Balinese 
-architecture and modern luxury. Tucked away in lush tropical greenery, the villa features a 
-stunning open-air living space that allows the gentle Balinese breeze to flow through, 
-creating a tranquil and refreshing ambiance. 
-                        "
-              ></textarea>
+              <textarea className="border-2 rounded p-2" rows="6">
+                This enchanting Airbnb villa in Bali offers an exquisite blend
+                of traditional Balinese architecture and modern luxury. Tucked
+                away in lush tropical greenery, the villa features a stunning
+                open-air living space that allows the gentle Balinese breeze to
+                flow through, creating a tranquil and refreshing ambiance.
+              </textarea>
             </div>
-            {/* <button className="rounded p-3 mt-6 text-white w-32 bg-red-400">
-              List House
-            </button> */}
-            <div className=" mt-6">
-              <button className="rounded  py-2  px-3 mr-2 text-white  bg-red-400">
+            <div className="mt-6">
+              <button className="rounded py-2 px-3 mr-2 text-white bg-red-400">
                 List House
               </button>
-              <button className="rounded  py-2  px-3 mt-6 text-black border-2 ">
+              <Link
+                to="/listings"
+                className="rounded py-2 px-3 mt-6 text-black border-2"
+              >
                 Cancel
-              </button>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col">

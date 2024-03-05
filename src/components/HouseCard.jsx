@@ -8,16 +8,16 @@ import { comment } from 'postcss'
 import { Link } from 'react-router-dom'
 
 function BookingComponent({ booking }) {
-  let startDate = booking.startDate.toLocaleDateString('en-us', {
-    day: 'numeric',
-    year: 'numeric',
-    month: 'short'
-  })
-  let endDate = booking.endDate.toLocaleDateString('en-us', {
-    day: 'numeric',
-    year: 'numeric',
-    month: 'short'
-  })
+  // let startDate = booking.startDate.toLocaleDateString('en-us', {
+  //   day: 'numeric',
+  //   year: 'numeric',
+  //   month: 'short'
+  // })
+  // let endDate = booking.endDate.toLocaleDateString('en-us', {
+  //   day: 'numeric',
+  //   year: 'numeric',
+  //   month: 'short'
+  // })
 
   // let totalTime = booking.endDate.getTime() - booking.startDate.getTime()
 
@@ -26,7 +26,7 @@ function BookingComponent({ booking }) {
   return (
     <div className="flex flex-col items-center m-3 p-2 bg-green-200">
       <span>
-        {startDate} - {endDate}
+        {booking.startDate} - {booking.endDate}
       </span>
       {/* <span className="font-bold  text-lg">
         {totalDays} nights = ${price * totalDays}

@@ -59,11 +59,9 @@ function Listings() {
       price: 120,
       rating: 4,
       reviews: 34,
-      listing: true,
       photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
-    // Adding 5 more houses
     {
       location: 'Maldives, India',
       rooms: 3,
@@ -71,7 +69,6 @@ function Listings() {
       price: 200,
       rating: 5,
       reviews: 45,
-      listing: true,
       photo:
         'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
@@ -82,7 +79,6 @@ function Listings() {
       price: 250,
       rating: 4.5,
       reviews: 50,
-      listing: true,
       photo:
         'https://images.unsplash.com/photo-1604999333679-b86d54738315?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
@@ -93,7 +89,7 @@ function Listings() {
       <EditListing />
       <div className="grid grid-cols-5 gap-4 mx-2">
         {listings.map((house, id) => (
-          <HouseCard house={house} key={id} />
+          <HouseCard house={house} listing={true} key={id} />
         ))}
       </div>
     </div>

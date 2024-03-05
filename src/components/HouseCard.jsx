@@ -7,7 +7,7 @@ import {
 import { comment } from 'postcss'
 import { Link } from 'react-router-dom'
 
-function HouseCard({ house }) {
+function HouseCard({ house, listing }) {
   return (
     <div className=" border rounded hover:shadow">
       <Link to="/houses/1">
@@ -36,7 +36,7 @@ function HouseCard({ house }) {
           </div>
         </div>
       </Link>
-      {house.listing ? (
+      {listing ? (
         <span>
           <button className="px-2 py-1 border-2 rounded  mr-1">View</button>
           <button className="px-2 py-1 border-2 rounded">Edit</button>

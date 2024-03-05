@@ -35,7 +35,7 @@ function BookingComponent({ booking }) {
   )
 }
 
-function HouseCard({ house }) {
+function HouseCard({ house, booking }) {
   return (
     <div className=" border rounded hover:shadow">
       <Link to="/houses/1">
@@ -63,7 +63,7 @@ function HouseCard({ house }) {
             />
           </div>
         </div>
-        {house.booking ? (
+        {booking ? (
           <BookingComponent booking={house.booking} price={house.price} />
         ) : (
           ''

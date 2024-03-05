@@ -37,7 +37,7 @@ function Bookings() {
       <Nav />
       <div className="grid grid-cols-5 gap-4">
         {bookings.map((booking, index) => {
-          return <HouseCard house={booking} key={index} />
+          return <HouseCard house={booking} booking={true} key={index} />
         })}
       </div>
     </div>

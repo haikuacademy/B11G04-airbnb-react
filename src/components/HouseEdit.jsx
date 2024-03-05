@@ -1,7 +1,25 @@
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
 
+//House Edit
+// Copy the house object from the House.jsx component to HouseEdit.jsx
+// Use the object data to replace the hardcoded values in the UI
+
 function HouseEdit() {
+  let house = {
+    location: 'Bali, Indonesia',
+    rooms: 2,
+    bathrooms: 2,
+    description:
+      ' Nestled gracefully against the azure embrace of the ocean, the beautiful house exudes timeless charm and tranquility. Its weathered cedar exterior echoes the hues of the surrounding sand and sky, blending seamlessly with the coastal landscape. Large windows adorn its façade, inviting the golden sunlight to dance within its airy confines. A spacious deck overlooks the endless expanse of turquoise waters, offering panoramic views of rolling waves and distant horizons. Inside, the interiors are bathed in natural light, adorned with rustic furnishings and nautical accents that evoke a sense of seaside serenity. This coastal haven whispers tales of peace and rejuvenation.',
+    price: 300,
+    rating: 4,
+    host: {
+      firstName: 'Linda',
+      lastName: 'Smith',
+      picture: 'https://randomuser.me/api/portraits/women/85.jpg'
+    }
+  }
   return (
     <div className="container mx-auto">
       <Nav />
@@ -14,29 +32,37 @@ function HouseEdit() {
               <input
                 className="border-2 rounded p-2"
                 type="text"
-                value="Bali"
+                value={house.location}
               />
             </div>
             <div className="flex flex-col my-1">
               <label>Bedrooms</label>
-              <input className="border-2 rounded p-2" type="text" value="3" />
+              <input
+                className="border-2 rounded p-2"
+                type="text"
+                value={house.rooms}
+              />
             </div>
             <div className="flex flex-col my-1">
               <label>Bathrooms</label>
-              <input className="border-2 rounded p-2" type="text" value="2" />
+              <input
+                className="border-2 rounded p-2"
+                type="text"
+                value={house.bathrooms}
+              />
             </div>
             <div className="flex flex-col my-1">
               <label>Price per Night</label>
-              <input className="border-2 rounded p-2" type="text" value="140" />
+              <input
+                className="border-2 rounded p-2"
+                type="text"
+                value={house.price}
+              />
             </div>
             <div className="flex flex-col my-1">
               <label>Description</label>
               <textarea className="border-2 rounded p-2" rows="6">
-                This enchanting Airbnb villa in Bali offers an exquisite blend
-                of traditional Balinese architecture and modern luxury. Tucked
-                away in lush tropical greenery, the villa features a stunning
-                open-air living space that allows the gentle Balinese breeze to
-                flow through, creating a tranquil and refreshing ambiance.
+                {house.description}
               </textarea>
             </div>
             <div className="mt-6">

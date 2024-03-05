@@ -1,8 +1,24 @@
+// In the House.jsx component, import the useEffect and useState hooks
+import { useState, useEffect } from 'react'
+
 import Nav from './Nav'
 import Gallery from './Gallery'
 import Reviews from './Reviews'
 
+// In this section, you're going to add interactivity to the "booking" form, so that a) it calculates and shows the number of days between the selected dates in the 2 inputs of the form and b) it updates the total price in real time
+
+// Upon changing the value of the "check in" or the "check out" inputs, update the value of their corresponding state variables
+
+// Using the useEffect hook, check whenever startDate or endDate changes and automatically update the value of nights. Your challenge is to figure out how to calculate the difference in days between 2 dates. Use any resource on the web to find the solution.
+// Test in the browser that updating either the "check in" or the "check out" inputs updates the total number of nights
+// Create an additional state variable named totalPrice which also gets updated and returns in the UI the number of nights multiplied by the price per night of the house.
+
 function BookHouse() {
+  // Using useState, create 3 variables startDate, endDate and nights, and their corresponding functions
+  const [startDate, setStartDate] = useState()
+  const [endDate, setEndDate] = useState()
+  const [nights, setNights] = useState()
+
   return (
     <form className="border-2 p-4 x-20 border-gray-300 rounded">
       <div className="pb-1 text-lg">
@@ -10,11 +26,23 @@ function BookHouse() {
         <div className="flex">
           <div className="flex flex-col">
             <label>Check-in</label>
-            <input className="border-2 p-2 my-2 mr-2 rounded" type="date" />
+            <input
+              className="border-2 p-2 my-2 mr-2 rounded"
+              type="date"
+              onChange={(e) => {
+                setStartDate(e.target.value)
+              }}
+            />
           </div>
           <div className="flex flex-col">
             <label>Check-out</label>
-            <input className="border-2 p-2 my-2 rounded" type="date" />
+            <input
+              className="border-2 p-2 my-2 rounded"
+              type="date"
+              onChange={(e) => {
+                setEndDate(e.target.value)
+              }}
+            />
           </div>
         </div>
         <textarea

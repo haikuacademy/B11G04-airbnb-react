@@ -5,6 +5,26 @@ import {
   faComment
 } from '@fortawesome/free-solid-svg-icons'
 
+function FullStar({ review }) {
+  let roundedrating
+  let stars = []
+  let icon = <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+  roundedrating = Math.floor(review.rating)
+  for (let i = 0; i < roundedrating; i++) {
+    stars.push(icon)
+  }
+  return stars.map((star, index) => <div key={index}>{star}</div>)
+}
+
+function HalfStar({ review }) {
+  let halfRatingCheck
+  let rating = review.rating
+  halfRatingCheck = (rating * 2) % 2
+  if (halfRatingCheck) {
+    return <FontAwesomeIcon icon={faStarHalf} className="text-yellow-500" />
+  }
+}
+
 function Review({ review }) {
   return (
     <div className="p-4 rounded border-2 ">
@@ -26,11 +46,8 @@ function Review({ review }) {
         </div>
       </div>
       <div className="my-2 flex items-center">
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+        <FullStar review={review} />
+        <HalfStar review={review} />
         <div className="font-bold px-1">{review.rating}</div>
       </div>
       <p>{review.content}</p>

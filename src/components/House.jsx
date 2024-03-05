@@ -15,9 +15,14 @@ import Reviews from './Reviews'
 
 function BookHouse() {
   // Using useState, create 3 variables startDate, endDate and nights, and their corresponding functions
-  const [startDate, setStartDate] = useState()
-  const [endDate, setEndDate] = useState()
-  const [nights, setNights] = useState()
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+  const [nights, setNights] = useState(0)
+
+  useEffect(() => {
+    setNights(endDate - startDate)
+    console.log(nights)
+  }, [startDate, endDate])
 
   return (
     <form className="border-2 p-4 x-20 border-gray-300 rounded">
@@ -53,7 +58,7 @@ function BookHouse() {
         ></textarea>
         <div className="flex justify-between">
           <div className="text-lg">
-            3 nights = <strong>$360</strong>
+            {nights} nights = <strong>$360</strong>
           </div>
           <button className="rounded p-2  text-white bg-red-400">
             Reserve

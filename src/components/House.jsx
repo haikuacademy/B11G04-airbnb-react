@@ -10,19 +10,35 @@ import Reviews from './Reviews'
 // Upon changing the value of the "check in" or the "check out" inputs, update the value of their corresponding state variables
 
 // Using the useEffect hook, check whenever startDate or endDate changes and automatically update the value of nights. Your challenge is to figure out how to calculate the difference in days between 2 dates. Use any resource on the web to find the solution.
+
 // Test in the browser that updating either the "check in" or the "check out" inputs updates the total number of nights
+
 // Create an additional state variable named totalPrice which also gets updated and returns in the UI the number of nights multiplied by the price per night of the house.
 
-function BookHouse() {
+function BookHouse({ house }) {
   // Using useState, create 3 variables startDate, endDate and nights, and their corresponding functions
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [nights, setNights] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
+  useEffect(() => {
+    if (!startDate || !endDate) {
+      return
+    }
+
+    let start = new Date(startDate)
+    let end = new Date(endDate)
+
+    let totalTime = end.getTime() - start.getTime()
+
+    let totalDays = Math.round(totalTime / (1000 * 3600 * 24))
+
+    setNights(totalDays)
+  }, [startDate, endDate])
 
   useEffect(() => {
-    setNights(endDate - startDate)
-    console.log(nights)
-  }, [startDate, endDate])
+    setTotalPrice(nights * house.price)
+  }, [nights])
 
   return (
     <form className="border-2 p-4 x-20 border-gray-300 rounded">
@@ -58,7 +74,7 @@ function BookHouse() {
         ></textarea>
         <div className="flex justify-between">
           <div className="text-lg">
-            {nights} nights = <strong>$360</strong>
+            {nights} nights = <strong>${totalPrice}</strong>
           </div>
           <button className="rounded p-2  text-white bg-red-400">
             Reserve
@@ -112,7 +128,7 @@ function House() {
             <p>{house.description}</p>
           </div>
         </div>
-        <BookHouse />
+        <BookHouse house={house} />
       </div>
       <Reviews />
     </div>

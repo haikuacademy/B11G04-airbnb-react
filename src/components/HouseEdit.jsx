@@ -18,7 +18,18 @@ function HouseEdit() {
       firstName: 'Linda',
       lastName: 'Smith',
       picture: 'https://randomuser.me/api/portraits/women/85.jpg'
-    }
+    },
+    photos: [
+      'https://www.haikuacademy.com/photos/01.png',
+      'https://www.haikuacademy.com/photos/02.png',
+      'https://www.haikuacademy.com/photos/03.png',
+      'https://www.haikuacademy.com/photos/04.png',
+      'https://www.haikuacademy.com/photos/05.png',
+      'https://www.haikuacademy.com/photos/06.png',
+      'https://www.haikuacademy.com/photos/07.png',
+      'https://www.haikuacademy.com/photos/08.png',
+      'https://www.haikuacademy.com/photos/09.png'
+    ]
   }
   return (
     <div className="container mx-auto">
@@ -82,47 +93,47 @@ function HouseEdit() {
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/01.png"
+              value={house.photos[0]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/02.png"
+              value={house.photos[1]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/03.png"
+              value={house.photos[2]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/04.png"
+              value={house.photos[3]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/05.png"
+              value={house.photos[4]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/06.png"
+              value={house.photos[5]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/07.png"
+              value={house.photos[6]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/08.png"
+              value={house.photos[7]}
             />
             <input
               type="url"
               className="border-2 rounded p-2 my-1"
-              value="https://www.haikuacademy.com/photos/09.png"
+              value={house.photos[8]}
             />
           </div>
         </div>

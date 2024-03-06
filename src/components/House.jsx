@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useState } from 'react'
 
 import Nav from './Nav'
 import Gallery from './Gallery'
@@ -38,26 +39,26 @@ function BookHouse() {
   )
 }
 
-// Replace the hardcoded house with a an empty object, using the useState hook
 // Create an async function getHouse that uses axios to get a house object from the API url /houses/1, then sets the object as the value of the house state variable
 // Use the useEffect hook to trigger the getHouse function when the component loads
 // Test in the browser that the House page displays the house from the API
 
 function House() {
-  let house = {
-    location: 'Phuket, Thailand',
-    rooms: 2,
-    bathrooms: 2,
-    description:
-      ' Nestled gracefully against the azure embrace of the ocean, the beautiful house exudes timeless charm and tranquility. Its weathered cedar exterior echoes the hues of the surrounding sand and sky, blending seamlessly with the coastal landscape. Large windows adorn its façade, inviting the golden sunlight to dance within its airy confines. A spacious deck overlooks the endless expanse of turquoise waters, offering panoramic views of rolling waves and distant horizons. Inside, the interiors are bathed in natural light, adorned with rustic furnishings and nautical accents that evoke a sense of seaside serenity. This coastal haven whispers tales of peace and rejuvenation.',
-    price: 300,
-    rating: 4,
-    host: {
-      firstName: 'Linda',
-      lastName: 'Smith',
-      picture: 'https://randomuser.me/api/portraits/women/85.jpg'
-    }
-  }
+  const [house, setHouse] = useState({})
+  // let house = {
+  //   location: 'Phuket, Thailand',
+  //   rooms: 2,
+  //   bathrooms: 2,
+  //   description:
+  //     ' Nestled gracefully against the azure embrace of the ocean, the beautiful house exudes timeless charm and tranquility. Its weathered cedar exterior echoes the hues of the surrounding sand and sky, blending seamlessly with the coastal landscape. Large windows adorn its façade, inviting the golden sunlight to dance within its airy confines. A spacious deck overlooks the endless expanse of turquoise waters, offering panoramic views of rolling waves and distant horizons. Inside, the interiors are bathed in natural light, adorned with rustic furnishings and nautical accents that evoke a sense of seaside serenity. This coastal haven whispers tales of peace and rejuvenation.',
+  //   price: 300,
+  //   rating: 4,
+  //   host: {
+  //     firstName: 'Linda',
+  //     lastName: 'Smith',
+  //     picture: 'https://randomuser.me/api/portraits/women/85.jpg'
+  //   }
+  // }
 
   return (
     <div className="container mx-auto">

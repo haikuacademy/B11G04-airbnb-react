@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 function FullStar({ review }) {
   let roundedrating
@@ -60,10 +61,11 @@ function Review({ review }) {
 }
 
 function Reviews() {
+  const { id } = useParams()
   const [reviews, setReviews] = useState([])
   const getReviews = async () => {
     let { data } = await axios.get(
-      'https://haiku-bnb.onrender.com/reviews?house=1'
+      'https://haiku-bnb.onrender.com/reviews' + (id ? '?house=' + id : '')
     )
     setReviews(data)
   }

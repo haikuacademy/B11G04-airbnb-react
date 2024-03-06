@@ -28,6 +28,8 @@ function HalfStar({ review }) {
 }
 
 function Review({ review }) {
+  let rawDate = review.date
+  let modifiedDate = rawDate.substring(0, 10)
   return (
     <div className="p-4 rounded border-2 ">
       <div className="flex ">
@@ -39,7 +41,7 @@ function Review({ review }) {
               className="rounded-full h-10 w-10 mr-2"
             />
             <div className="flex flex-col">
-              <p className="font-thin inline">{review.date}</p>
+              <p className="font-thin inline">{modifiedDate}</p>
               <p>
                 {review.author.firstName} {review.author.lastName}
               </p>
@@ -52,7 +54,7 @@ function Review({ review }) {
         <HalfStar review={review} />
         <div className="font-bold px-1">{review.rating}</div>
       </div>
-      <p>{review.content}</p>
+      <p>{review.comment}</p>
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import Nav from './Nav'
 import Gallery from './Gallery'
 import Reviews from './Reviews'
@@ -35,6 +37,11 @@ function BookHouse() {
     </form>
   )
 }
+
+// Replace the hardcoded house with a an empty object, using the useState hook
+// Create an async function getHouse that uses axios to get a house object from the API url /houses/1, then sets the object as the value of the house state variable
+// Use the useEffect hook to trigger the getHouse function when the component loads
+// Test in the browser that the House page displays the house from the API
 
 function House() {
   let house = {

@@ -13,7 +13,7 @@ function Gallery({ house }) {
             src={image}
             key={id}
             alt={image[id]}
-            className="rounded h-full cursor-pointer"
+            className="rounded h-full cursor-pointer hover:opacity-50"
             onClick={() => setSelectedImage(image)}
           />
         ))}

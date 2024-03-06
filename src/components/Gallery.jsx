@@ -1,7 +1,7 @@
 function Gallery({ house }) {
   let { images } = house
 
-  let firstImage = images.shift()
+  let firstImage = images[0]
 
   return (
     <div className="grid grid-cols-2 gap-5 p-2">

@@ -1,4 +1,5 @@
 import Nav from './Nav'
+import { useState } from 'react'
 
 function Profile() {
   const user = {
@@ -8,6 +9,8 @@ function Profile() {
     picture:
       'https://www.generatormix.com/images/muppets/pepe-the-king-prawn.jpg'
   }
+  const [picture, setPicture] = useState(user.picture)
+
   return (
     <div className="container mx-auto">
       <Nav />
@@ -15,7 +18,7 @@ function Profile() {
         <h1 className="font-bold text-2xl">Your Profile</h1>
         <div className="flex items-center">
           <img
-            src={user.picture}
+            src={picture}
             alt="User profile pic"
             className="w-20 rounded-full"
           />
@@ -23,6 +26,7 @@ function Profile() {
             className="border-2 px-4 py-2 rounded w-full ml-4"
             type="text"
             value={user.picture}
+            onChange={() => setPicture(user.picture)}
           />
         </div>
         <label>First Name</label>

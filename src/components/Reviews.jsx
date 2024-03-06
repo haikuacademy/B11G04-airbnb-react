@@ -4,6 +4,9 @@ import {
   faStarHalf,
   faComment
 } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 function FullStar({ review }) {
   let roundedrating
@@ -26,6 +29,8 @@ function HalfStar({ review }) {
 }
 
 function Review({ review }) {
+  let rawDate = review.date
+  let modifiedDate = rawDate.substring(0, 10)
   return (
     <div className="p-4 rounded border-2 ">
       <div className="flex ">
@@ -37,7 +42,7 @@ function Review({ review }) {
               className="rounded-full h-10 w-10 mr-2"
             />
             <div className="flex flex-col">
-              <p className="font-thin inline">{review.date}</p>
+              <p className="font-thin inline">{modifiedDate}</p>
               <p>
                 {review.author.firstName} {review.author.lastName}
               </p>
@@ -50,44 +55,23 @@ function Review({ review }) {
         <HalfStar review={review} />
         <div className="font-bold px-1">{review.rating}</div>
       </div>
-      <p>{review.content}</p>
+      <p>{review.comment}</p>
     </div>
   )
 }
 
 function Reviews() {
-  const reviews = [
-    {
-      content: 'Bathroom did not live up to expectations. =(',
-      rating: 2,
-      date: '2024-02-01',
-      author: {
-        firstName: 'John',
-        lastName: 'Smith',
-        picture: 'https://randomuser.me/api/portraits/men/85.jpg'
-      }
-    },
-    {
-      content: 'This place very warm, unlike Siberia!',
-      rating: 3.5,
-      date: '2024-01-10',
-      author: {
-        firstName: 'Ivan',
-        lastName: 'Ivanov',
-        picture: 'https://randomuser.me/api/portraits/men/10.jpg'
-      }
-    },
-    {
-      content: 'This place is amazing! I wanna stay here for ever. =D',
-      rating: 5,
-      date: '2024-02-05',
-      author: {
-        firstName: 'Khadira',
-        lastName: 'Khan',
-        picture: 'https://randomuser.me/api/portraits/women/15.jpg'
-      }
-    }
-  ]
+  const { id } = useParams()
+  const [reviews, setReviews] = useState([])
+  const getReviews = async () => {
+    let { data } = await axios.get(
+      'https://haiku-bnb.onrender.com/reviews' + (id ? '?house=' + id : '')
+    )
+    setReviews(data)
+  }
+  useEffect(() => {
+    getReviews()
+  }, [])
   return (
     <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">

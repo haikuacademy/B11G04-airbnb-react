@@ -1,10 +1,23 @@
+import axios from 'axios'
 import Nav from './Nav'
 import HouseCard from './HouseCard'
 
 import Filters from './Filters'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 function Houses() {
-  let houses = [
+  const [houses, setHouses] = useState([])
+
+  const getHouses = async () => {
+    let { data } = await axios.get('https://haiku-bnb.onrender.com/houses')
+    setHouses(data)
+  }
+  useEffect(() => {
+    getHouses()
+  }, [])
+
+  /*[
     {
       location: 'Phuket, Thailand',
       rooms: 2,
@@ -96,7 +109,8 @@ function Houses() {
       reviews: 120,
       photo: 'https://images.unsplash.com/photo-1577769208255-f1c0d5d21572'
     }
-  ]
+    */
+  //]
   return (
     <div className="container mx-auto">
       <Nav />
@@ -109,5 +123,4 @@ function Houses() {
     </div>
   )
 }
-
 export default Houses

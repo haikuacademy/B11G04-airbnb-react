@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-
 import {
   faStar,
   faStarHalf,
   faComment
 } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 function FullStar({ review }) {
   let roundedrating
@@ -19,7 +18,6 @@ function FullStar({ review }) {
   }
   return stars.map((star, index) => <div key={index}>{star}</div>)
 }
-
 function HalfStar({ review }) {
   let halfRatingCheck
   let rating = review.rating
@@ -30,6 +28,8 @@ function HalfStar({ review }) {
 }
 
 function Review({ review }) {
+  let rawDate = review.date
+  let modifiedDate = rawDate.substring(0, 10)
   return (
     <div className="p-4 rounded border-2 ">
       <div className="flex ">
@@ -41,7 +41,7 @@ function Review({ review }) {
               className="rounded-full h-10 w-10 mr-2"
             />
             <div className="flex flex-col">
-              <p className="font-thin inline">{review.date}</p>
+              <p className="font-thin inline">{modifiedDate}</p>
               <p>
                 {review.author.firstName} {review.author.lastName}
               </p>
@@ -54,11 +54,10 @@ function Review({ review }) {
         <HalfStar review={review} />
         <div className="font-bold px-1">{review.rating}</div>
       </div>
-      <p>{review.content}</p>
+      <p>{review.comment}</p>
     </div>
   )
 }
-
 function Reviews() {
   const { id } = useParams()
   const [reviews, setReviews] = useState([])
@@ -129,5 +128,4 @@ function Reviews() {
     </div>
   )
 }
-
 export default Reviews

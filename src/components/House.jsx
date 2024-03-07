@@ -66,7 +66,7 @@ function House() {
   return (
     <div className="container mx-auto">
       <Nav />
-      <Gallery />
+      <Gallery house={house} />
 
       <div className="grid grid-cols-3 gap-36 pb-10 mx-2">
         <div className="col-span-2">

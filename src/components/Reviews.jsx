@@ -56,38 +56,17 @@ function Review({ review }) {
 }
 
 function Reviews() {
-  const reviews = [
-    {
-      content: 'Bathroom did not live up to expectations. =(',
-      rating: 2,
-      date: '2024-02-01',
-      author: {
-        firstName: 'John',
-        lastName: 'Smith',
-        picture: 'https://randomuser.me/api/portraits/men/85.jpg'
-      }
-    },
-    {
-      content: 'This place very warm, unlike Siberia!',
-      rating: 3.5,
-      date: '2024-01-10',
-      author: {
-        firstName: 'Ivan',
-        lastName: 'Ivanov',
-        picture: 'https://randomuser.me/api/portraits/men/10.jpg'
-      }
-    },
-    {
-      content: 'This place is amazing! I wanna stay here for ever. =D',
-      rating: 5,
-      date: '2024-02-05',
-      author: {
-        firstName: 'Khadira',
-        lastName: 'Khan',
-        picture: 'https://randomuser.me/api/portraits/women/15.jpg'
-      }
-    }
-  ]
+  const { id } = useParams()
+  const [reviews, setReviews] = useState([])
+  const getReviews = async () => {
+    let { data } = await axios.get(
+      'https://haiku-bnb.onrender.com/reviews' + (id ? '?house_id=' + id : '')
+    )
+    setReviews(data)
+  }
+  useEffect(() => {
+    getReviews()
+  }, [])
   return (
     <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">

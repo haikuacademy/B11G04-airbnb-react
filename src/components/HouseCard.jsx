@@ -21,30 +21,7 @@ function BookingComponent({ booking }) {
 }
 
 function HouseCard({ listing, house }) {
-  //   Linking Cards
-  // In the HouseCard.jsx component, instead of linking the card to /houses/1, use the house_id value from the props to link the card to its corresponding URL, such as /houses/2, /houses/10, etc.
-  //   Test in the browser that clicking a card navigates to its correct URL
-
   const navigate = useNavigate()
-
-  // const { houseid } = useParams()
-
-  // console.log(houseid)
-
-  // const getLink = async () => {
-  //   let { data } = await axios.get(
-  //     'https://haiku-bnb.onrender.com/houses/' + { link }
-  //   )
-  //   setLink(data)
-  // }
-
-  // useEffect(() => {
-  //   getLink()
-  // }, [])
-
-  // if (link === undefined) {
-  //   return <div>Loading</div>
-  // }
 
   return (
     <div className=" border rounded hover:shadow">

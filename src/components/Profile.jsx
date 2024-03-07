@@ -25,8 +25,8 @@ function Profile() {
           <input
             className="border-2 px-4 py-2 rounded w-full ml-4"
             type="text"
-            value={user.picture}
-            onChange={() => setPicture(user.picture)}
+            value={picture}
+            onChange={(e) => setPicture(e.target.value)}
           />
         </div>
         <label>First Name</label>

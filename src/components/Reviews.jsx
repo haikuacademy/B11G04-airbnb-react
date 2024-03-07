@@ -1,4 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+
 import {
   faStar,
   faStarHalf,

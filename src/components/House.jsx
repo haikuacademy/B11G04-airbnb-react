@@ -70,34 +70,29 @@ function House() {
 
       <div className="grid grid-cols-3 gap-36 pb-10 mx-2">
         <div className="col-span-2">
-          <div className="">
-            <div className="text-lg font-bold my-4">{house.location}</div>
-            <div className="text-sm text-slate-400  my-4">
-              {house.rooms} rooms . {house.bathrooms} bathrooms
-            </div>
-            <div className="flex justify-start  my-4">
-              <img
-                src={house.host.picture}
-                className="rounded-full mr-2 h-12"
-              />
-              <div>
-                <div className="text-sm">Hosted by</div>
-                <div className="text-sm">
-                  <strong>
-                    {house.host.firstName} {house.host.lastName}
-                  </strong>
-                </div>
+          <div className="text-lg font-bold my-4">{house.location}</div>
+          <div className="text-sm text-slate-400  my-4">
+            {house.rooms} rooms . {house.bathrooms} bathrooms
+          </div>
+          <div className="flex justify-start  my-4">
+            <img src={house.host.picture} className="rounded-full mr-2 h-12" />
+            <div>
+              <div className="text-sm">Hosted by</div>
+              <div className="text-sm">
+                <strong>
+                  {house.host.firstName} {house.host.lastName}
+                </strong>
               </div>
             </div>
-            <div className="text-sm my-4">
-              {' '}
-              <p>{house.description}</p>{' '}
-            </div>
+          </div>
+          <div className="text-sm my-4">
+            {' '}
+            <p>{house.description}</p>{' '}
           </div>
         </div>
         <BookHouse />
-        <Reviews />
       </div>
+      <Reviews />
     </div>
   )
 }

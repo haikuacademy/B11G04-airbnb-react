@@ -94,8 +94,8 @@ function House() {
               <p>{house.description}</p>{' '}
             </div>
           </div>
-          <BookHouse />
         </div>
+        <BookHouse />
         <Reviews />
       </div>
     </div>

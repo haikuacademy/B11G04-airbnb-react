@@ -4,10 +4,7 @@ import {
   faStarHalf,
   faCommentDots
 } from '@fortawesome/free-solid-svg-icons'
-import { comment } from 'postcss'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 
 function BookingComponent({ booking }) {
   return (

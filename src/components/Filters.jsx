@@ -11,9 +11,9 @@ import { useState, useEffect } from 'react'
 function Filters() {
   const [locations, setLocations] = useState([])
   const getLocations = async () => {
-    let locations = []
-    locations = await axios.get('https://haiku-bnb.onrender.com/locations')
-    setLocations(locations)
+    let { data } = await axios.get('https://haiku-bnb.onrender.com/locations')
+    console.log(locations)
+    setLocations(data)
   }
   useEffect(() => {
     getLocations(locations)
@@ -24,11 +24,13 @@ function Filters() {
         {/* Location */}
         <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faHouse} className="mr-2" />
-          <select className=" bg-white text-sm text-black font-semibold flex-1">
-            <option selected>Any Location</option>
-            <option>Bali</option>
-            <option>Koh Phangan</option>
-            <option>Phuket</option>
+          <select className="bg-white text-sm text-black font-semibold flex-1">
+            <option selected value="">
+              Any Location
+            </option>
+            {locations.map((location, index) => (
+              <option key={index}>{location}</option>
+            ))}
           </select>
         </div>
         {/* Rooms */}

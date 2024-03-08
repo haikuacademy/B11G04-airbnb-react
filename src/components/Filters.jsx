@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react'
 
 function Filters() {
   const [locations, setLocations] = useState([])
+  const [filteredHouses, setFilteredHouses] = useState([])
   const getLocations = async () => {
     let { data } = await axios.get('https://haiku-bnb.onrender.com/locations')
     setLocations(data)
@@ -17,10 +18,25 @@ function Filters() {
   useEffect(() => {
     getLocations(locations)
   }, [])
-  function submitForm(e) {
+  const getFilteredHouses = async (obj) => {
+    let apiResponse = await axios.get('https://haiku-bnb.onrender.com/houses', {
+      params: {
+        location: obj.location,
+        min_rooms: obj.min_rooms,
+        max_price: obj.max_price,
+        sort: obj.sort,
+        search: obj.search
+      }
+    })
+    return apiResponse.data
+  }
+  async function submitForm(e) {
     e.preventDefault()
     let form = new FormData(e.target)
-    console.log(form)
+    let formObject = Object.fromEntries(form.entries())
+    let data = await getFilteredHouses(formObject)
+    setFilteredHouses(data)
+    console.log(data)
   }
   return (
     <form onSubmit={(e) => submitForm(e)}>

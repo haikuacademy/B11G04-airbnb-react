@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function Signup() {
+  const [validEmail, setValidEmail] = useState(true)
+
+  const validateEmail = (email) => {
+    if (email.includes('@') && email.includes('.')) {
+      console.log(email)
+      setValidEmail(true)
+    } else {
+      console.log('not valid')
+      setValidEmail(false)
+    }
+  }
+
   return (
     <form className="container mx-auto flex flex-col p-6 border-2 w-[320px] mt-[60px] rounded">
       <img
@@ -14,7 +27,13 @@ function Signup() {
       <label className="mt-2">Last Name</label>
       <input type="text" className="rounded px-3.25 py-2.75 border-2 p-1" />
       <label className="mt-2">Email</label>
-      <input type="email" className="rounded px-3.25 py-2.75 border-2 p-1" />
+      <input
+        type="email"
+        className="rounded px-3.25 py-2.75 border-2 p-1"
+        onChange={(e) => {
+          validateEmail(e.target.value)
+        }}
+      />
       <label className="mt-2">Password</label>
       <input type="password" className="rounded px-3.25 py-2.75 border-2 p-1" />
       <label className="mt-2">Profile Picture</label>
@@ -23,7 +42,7 @@ function Signup() {
         className="rounded px-3.25 py-2.75 border-2 p-1"
         placeholder="https://..."
       />
-      <button className="rounded py-2 mt-6 bg-pink-500 text-white bg-[#FB7185]">
+      <button className="rounded py-2 mt-6 bg-pink-500 text-white ">
         Register
       </button>
       <span className="mt-2 text-base">

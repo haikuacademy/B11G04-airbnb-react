@@ -6,7 +6,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { comment } from 'postcss'
 import { Link } from 'react-router-dom'
-import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -21,11 +20,9 @@ function BookingComponent({ booking }) {
 }
 
 function HouseCard({ listing, house }) {
-  const navigate = useNavigate()
-
   return (
     <div className=" border rounded hover:shadow">
-      <Link to={navigate(`houses/${house.house_id}`)}>
+      <Link to={`houses/${house.house_id}`}>
         <img src={house.photo} className="border rounded" alt="" />
         <h6 className="text-lg font-bold">{house.location}</h6>
         <span className="text-sm text-slate-400">

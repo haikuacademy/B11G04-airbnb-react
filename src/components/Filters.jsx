@@ -24,7 +24,10 @@ function Filters() {
         {/* Location */}
         <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faHouse} className="mr-2" />
-          <select className="bg-white text-sm text-black font-semibold flex-1">
+          <select
+            name="location"
+            className="bg-white text-sm text-black font-semibold flex-1"
+          >
             <option selected value="">
               Any Location
             </option>
@@ -36,32 +39,48 @@ function Filters() {
         {/* Rooms */}
         <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faBed} className="mr-2" />
-          <select className="bg-white text-sm text-black font-semibold flex-1">
-            <option selected>Any Rooms</option>
-            <option>1 Room</option>
-            <option>2 Rooms</option>
-            <option>3 Rooms</option>
+          <select
+            name="min_rooms"
+            className="bg-white text-sm text-black font-semibold flex-1"
+          >
+            <option selected value="">
+              Any Rooms
+            </option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
           </select>
         </div>
         {/* Max Price */}
         <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faDollarSign} className="mr-2" />
-          <input type="number" placeholder="max price" className="flex-1" />
+          <input
+            name="max_price"
+            type="number"
+            placeholder="max price"
+            className="flex-1"
+          />
         </div>
         {/* Sort By */}
         <div className="flex flex-1 bg-white px-2 py-2 border rounded items-center">
           <FontAwesomeIcon icon={faSort} className="mr-2" />
-          <select className="bg-white text-sm text-black font-semibold flex-1">
-            <option selected>sort by</option>
-            <option>Price (low to high)</option>
-            <option>Price (high to low)</option>
-            <option>Rating (low to high)</option>
-            <option>Rating (high to low)</option>
+          <select
+            name="sort"
+            className="bg-white text-sm text-black font-semibold flex-1"
+          >
+            <option selected value="">
+              sort by
+            </option>
+            <option value="price">Price: low to high</option>
+            <option value="rooms">Rooms: high to low</option>
           </select>
         </div>
         {/* Keywords */}
         <div className="flex-1">
           <input
+            name="search"
             type="text"
             placeholder="keywords..."
             className="bg-white text-sm font-semibold px-2 py-3 border rounded w-full"

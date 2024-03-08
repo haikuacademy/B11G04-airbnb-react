@@ -5,8 +5,19 @@ import {
   faDollarSign,
   faSort
 } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 function Filters() {
+  const [locations, setLocations] = useState([])
+  const getLocations = async () => {
+    let locations = []
+    locations = await axios.get('https://haiku-bnb.onrender.com/locations')
+    setLocations(locations)
+  }
+  useEffect(() => {
+    getLocations(locations)
+  }, [])
   return (
     <form>
       <div className="flex justify-between bg-slate-100 p-2 my-2 gap-2">

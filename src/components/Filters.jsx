@@ -12,7 +12,6 @@ function Filters() {
   const [locations, setLocations] = useState([])
   const getLocations = async () => {
     let { data } = await axios.get('https://haiku-bnb.onrender.com/locations')
-    console.log(locations)
     setLocations(data)
   }
   useEffect(() => {
@@ -20,6 +19,8 @@ function Filters() {
   }, [])
   function submitForm(e) {
     e.preventDefault()
+    let form = new FormData(e.target)
+    console.log(form)
   }
   return (
     <form onSubmit={(e) => submitForm(e)}>

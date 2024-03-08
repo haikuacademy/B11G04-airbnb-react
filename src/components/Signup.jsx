@@ -5,7 +5,7 @@ function Signup() {
   const [validEmail, setValidEmail] = useState(true)
 
   const validateEmail = (email) => {
-    if (email.includes('@') && email.includes('.')) {
+    if ((email.includes('@') && email.includes('.')) || email === '') {
       console.log(email)
       setValidEmail(true)
     } else {
@@ -26,7 +26,11 @@ function Signup() {
       <input type="text" className="rounded px-3.25 py-2.75 border-2 p-1" />
       <label className="mt-2">Last Name</label>
       <input type="text" className="rounded px-3.25 py-2.75 border-2 p-1" />
-      <label className="mt-2">Email</label>
+      <label className="mt-2">
+        Email{' '}
+        {!validEmail ? <span className="text-red-500">Invalid Email</span> : ''}
+      </label>
+
       <input
         type="email"
         className="rounded px-3.25 py-2.75 border-2 p-1"

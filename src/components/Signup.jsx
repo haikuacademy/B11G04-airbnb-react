@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
+import bcrypt from 'bcrypt'
+import axios from 'axios'
+axios.defaults.withCredentials = true
+
 function Signup() {
   const [validEmail, setValidEmail] = useState(true)
 
@@ -22,7 +26,21 @@ function Signup() {
     picture
   ) => {
     e.preventDefault()
-    let apiResponse = await axios.post()
+
+    const salt = await bcrypt.genSalt(10)
+    const hashPassword = await bcrypt.hash(password, salt)
+
+    let apiResponse = await axios.post(
+      'https://haiku-bnb.onrender.com/signup',
+      {
+        first_name,
+        last_name,
+        email,
+        hashPassword,
+        picture
+      }
+    )
+    return apiResponse.data
   }
 
   return (

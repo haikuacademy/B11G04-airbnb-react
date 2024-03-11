@@ -53,7 +53,6 @@ function Filters({ setHouses }) {
     let form = new FormData(e.target)
     let formObject = Object.fromEntries(form.entries())
     filteredHouses = await getFilteredHouses(formObject)
-    // console.log(filteredHouses)
     setHouses(filteredHouses)
   }
 

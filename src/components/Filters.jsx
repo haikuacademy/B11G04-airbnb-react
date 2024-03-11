@@ -7,7 +7,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import _ from 'lodash'
 
 function Filters({ setHouses }) {
   const [locations, setLocations] = useState([])

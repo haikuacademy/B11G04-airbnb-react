@@ -19,7 +19,6 @@ function Filters({ setHouses }) {
   }, [])
 
   const getFilteredHouses = async (obj) => {
-    console.log(obj)
     const paramsObject = {}
     if (obj.location) {
       paramsObject.location = obj.location
@@ -36,7 +35,6 @@ function Filters({ setHouses }) {
     if (obj.search) {
       paramsObject.searc = obj.search
     }
-    console.log(paramsObject)
     let apiResponse = await axios.get('https://haiku-bnb.onrender.com/houses', {
       params: {
         location: obj.location,

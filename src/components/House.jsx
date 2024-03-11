@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import Nav from './Nav'
 import Gallery from './Gallery'
@@ -6,6 +7,8 @@ import Reviews from './Reviews'
 import BookHouse from './Booking'
 
 function House() {
+  const { id } = useParams()
+
   let house = {
     location: 'Phuket, Thailand',
     rooms: 2,
@@ -59,7 +62,7 @@ function House() {
             <p>{house.description}</p>
           </div>
         </div>
-        <BookHouse house={house} />
+        <BookHouse house={house} id={id} />
       </div>
       <Reviews />
     </div>

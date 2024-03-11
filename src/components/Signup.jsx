@@ -14,13 +14,20 @@ function Signup() {
     }
   }
 
-  const submitForm = () => {
+  const submitForm = async (
+    first_name,
+    last_name,
+    email,
+    password,
+    picture
+  ) => {
     e.preventDefault()
+    let apiResponse = await axios.post()
   }
 
   return (
     <form
-      onSubmit={submitForm}
+      onSubmit={(e) => submitForm(e)}
       className="container mx-auto flex flex-col p-6 border-2 w-[320px] mt-[60px] rounded"
     >
       <img

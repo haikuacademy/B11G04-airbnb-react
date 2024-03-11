@@ -14,8 +14,15 @@ function Signup() {
     }
   }
 
+  const submitForm = () => {
+    e.preventDefault()
+  }
+
   return (
-    <form className="container mx-auto flex flex-col p-6 border-2 w-[320px] mt-[60px] rounded">
+    <form
+      onSubmit={submitForm}
+      className="container mx-auto flex flex-col p-6 border-2 w-[320px] mt-[60px] rounded"
+    >
       <img
         src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png
 "
@@ -23,15 +30,24 @@ function Signup() {
         className="h-6 self-center"
       />
       <label className="mt-2">First Name</label>
-      <input type="text" className="rounded px-3.25 py-2.75 border-2 p-1" />
+      <input
+        name="first_name"
+        type="text"
+        className="rounded px-3.25 py-2.75 border-2 p-1"
+      />
       <label className="mt-2">Last Name</label>
-      <input type="text" className="rounded px-3.25 py-2.75 border-2 p-1" />
+      <input
+        name="last_name"
+        type="text"
+        className="rounded px-3.25 py-2.75 border-2 p-1"
+      />
       <label className="mt-2">
         Email{' '}
         {!validEmail ? <span className="text-red-500">Invalid Email</span> : ''}
       </label>
 
       <input
+        name="email"
         type="email"
         className="rounded px-3.25 py-2.75 border-2 p-1"
         onChange={(e) => {
@@ -39,9 +55,14 @@ function Signup() {
         }}
       />
       <label className="mt-2">Password</label>
-      <input type="password" className="rounded px-3.25 py-2.75 border-2 p-1" />
+      <input
+        name="password"
+        type="password"
+        className="rounded px-3.25 py-2.75 border-2 p-1"
+      />
       <label className="mt-2">Profile Picture</label>
       <input
+        name="picture"
         type="url"
         className="rounded px-3.25 py-2.75 border-2 p-1"
         placeholder="https://..."

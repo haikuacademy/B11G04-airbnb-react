@@ -18,7 +18,6 @@ function FullStar({ review }) {
   }
   return stars.map((star, index) => <div key={index}>{star}</div>)
 }
-
 function HalfStar({ review }) {
   let halfRatingCheck
   let rating = review.rating
@@ -59,7 +58,6 @@ function Review({ review }) {
     </div>
   )
 }
-
 function Reviews() {
   const { id } = useParams()
   const [reviews, setReviews] = useState([])
@@ -130,5 +128,4 @@ function Reviews() {
     </div>
   )
 }
-
 export default Reviews

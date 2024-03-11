@@ -24,5 +24,4 @@ function Gallery({ house }) {
     </div>
   )
 }
-
 export default Gallery

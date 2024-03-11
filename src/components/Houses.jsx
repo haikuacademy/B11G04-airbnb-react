@@ -123,5 +123,4 @@ function Houses() {
     </div>
   )
 }
-
 export default Houses

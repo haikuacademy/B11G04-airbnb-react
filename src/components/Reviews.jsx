@@ -4,44 +4,74 @@ import {
   faStarHalf,
   faComment
 } from '@fortawesome/free-solid-svg-icons'
-// import { faHouse } from '@fortawesome/free-regular-svg-icons'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-function Review() {
+function FullStar({ review }) {
+  let roundedrating
+  let stars = []
+  let icon = <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+  roundedrating = Math.floor(review.rating)
+  for (let i = 0; i < roundedrating; i++) {
+    stars.push(icon)
+  }
+  return stars.map((star, index) => <div key={index}>{star}</div>)
+}
+
+function HalfStar({ review }) {
+  let halfRatingCheck
+  let rating = review.rating
+  halfRatingCheck = (rating * 2) % 2
+  if (halfRatingCheck) {
+    return <FontAwesomeIcon icon={faStarHalf} className="text-yellow-500" />
+  }
+}
+
+function Review({ review }) {
+  let rawDate = review.date
+  let modifiedDate = rawDate.substring(0, 10)
   return (
     <div className="p-4 rounded border-2 ">
       <div className="flex ">
         <div className="flex flex-col">
           <div className="flex">
             <img
-              src="https://randomuser.me/api/portraits/men/84.jpg"
-              alt="Mike Lino"
+              src={review.author.picture}
+              alt="User profile pic"
               className="rounded-full h-10 w-10 mr-2"
             />
-
             <div className="flex flex-col">
-              <p className="font-thin inline">24 Jan 2024</p>
-              <p>Mike Lino</p>
+              <p className="font-thin inline">{modifiedDate}</p>
+              <p>
+                {review.author.firstName} {review.author.lastName}
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div className="my-2 flex items-center">
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-        <div className="font-bold px-1">4</div>
+        <FullStar review={review} />
+        <HalfStar review={review} />
+        <div className="font-bold px-1">{review.rating}</div>
       </div>
-      <p>
-        Great place to stay! The house is very clean and comfortable, and the
-        location is perfect. The host was very friendly and helpful. Highly
-        recommend!
-      </p>
+      <p>{review.comment}</p>
     </div>
   )
 }
 
 function Reviews() {
+  const { id } = useParams()
+  const [reviews, setReviews] = useState([])
+  const getReviews = async () => {
+    let { data } = await axios.get(
+      'https://haiku-bnb.onrender.com/reviews' + (id ? '?house_id=' + id : '')
+    )
+    setReviews(data)
+  }
+  useEffect(() => {
+    getReviews()
+  }, [])
   return (
     <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">
@@ -61,8 +91,9 @@ function Reviews() {
             <p>4.5</p>
           </div>
           <div className="flex flex-col gap-1 ">
-            <Review />
-            <Review />
+            {reviews.map((review, index) => (
+              <Review key={index} review={review} />
+            ))}
           </div>
         </div>
       </div>
@@ -99,4 +130,5 @@ function Reviews() {
     </div>
   )
 }
+
 export default Reviews

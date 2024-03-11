@@ -7,10 +7,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import _ from 'lodash'
 
-function Filters() {
+function Filters({ setHouses }) {
   const [locations, setLocations] = useState([])
-  const [filteredHouses, setFilteredHouses] = useState([])
   const getLocations = async () => {
     let { data } = await axios.get('https://haiku-bnb.onrender.com/locations')
     setLocations(data)
@@ -18,7 +18,26 @@ function Filters() {
   useEffect(() => {
     getLocations(locations)
   }, [])
+
   const getFilteredHouses = async (obj) => {
+    console.log(obj)
+    const paramsObject = {}
+    if (obj.location) {
+      paramsObject.location = obj.location
+    }
+    if (obj.min_rooms) {
+      paramsObject.min_rooms = obj.min_rooms
+    }
+    if (obj.max_price) {
+      paramsObject.max_price = obj.max_price
+    }
+    if (obj.sort) {
+      paramsObject.sort = obj.sort
+    }
+    if (obj.search) {
+      paramsObject.searc = obj.search
+    }
+    console.log(paramsObject)
     let apiResponse = await axios.get('https://haiku-bnb.onrender.com/houses', {
       params: {
         location: obj.location,
@@ -30,14 +49,17 @@ function Filters() {
     })
     return apiResponse.data
   }
+
+  let filteredHouses
   async function submitForm(e) {
     e.preventDefault()
     let form = new FormData(e.target)
     let formObject = Object.fromEntries(form.entries())
-    let data = await getFilteredHouses(formObject)
-    setFilteredHouses(data)
-    console.log(data)
+    filteredHouses = await getFilteredHouses(formObject)
+    // console.log(filteredHouses)
+    setHouses(filteredHouses)
   }
+
   return (
     <form onSubmit={(e) => submitForm(e)}>
       <div className="flex justify-between bg-slate-100 p-2 my-2 gap-2">

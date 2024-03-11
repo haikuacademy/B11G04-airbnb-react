@@ -16,7 +16,7 @@ function Houses() {
   return (
     <div className="container mx-auto">
       <Nav />
-      <Filters onChange={({ filteredHouses }) => setHouses(filteredHouses)} />
+      <Filters setHouses={setHouses} />
       <div className="grid grid-cols-5 gap-4 ">
         {houses.map((house, i) => {
           return <HouseCard key={i} house={house} />

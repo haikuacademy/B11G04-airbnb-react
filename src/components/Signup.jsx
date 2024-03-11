@@ -23,7 +23,7 @@ function Signup() {
         className="rounded px-3.25 py-2.75 border-2 p-1"
         placeholder="https://..."
       />
-      <button className="rounded py-2 mt-6 bg-pink-500 text-white bg-[#FB7185]">
+      <button className="rounded py-2 mt-6 bg-pink-500 text-white ">
         Register
       </button>
       <span className="mt-2 text-base">

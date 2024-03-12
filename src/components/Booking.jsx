@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+
 import axios from 'axios'
 
-function BookHouse({ house, id }) {
+function BookHouse({ house }) {
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [nights, setNights] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
   const [newBooking, setNewBooking] = useState(false)
+
+  let house_id = useParams()
 
   const createBooking = async (e) => {
     e.preventDefault()
@@ -14,13 +18,15 @@ function BookHouse({ house, id }) {
     let form = new FormData(e.target)
     let formObject = Object.fromEntries(form.entries())
 
+    formObject.house_id = house_id.id
+
     let apiResponse = await axios.post(
       `https://haiku-bnb.onrender.com/bookings`,
       formObject
     )
     setNewBooking(true)
     if (apiResponse.data.error) {
-      console.log(apiResponse.data.error)
+      console.log('Error:', apiResponse.data.error)
     }
 
     console.log(apiResponse.data.message)
@@ -64,7 +70,7 @@ function BookHouse({ house, id }) {
               <input
                 className="border-2 p-2 my-2 mr-2 rounded"
                 type="date"
-                name="checkIn"
+                name="from_date"
                 onChange={(e) => {
                   setStartDate(e.target.value)
                 }}
@@ -75,7 +81,7 @@ function BookHouse({ house, id }) {
               <input
                 className="border-2 p-2 my-2 rounded"
                 type="date"
-                name="checkOut"
+                name="to_date"
                 onChange={(e) => {
                   setEndDate(e.target.value)
                 }}

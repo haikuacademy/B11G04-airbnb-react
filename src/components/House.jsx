@@ -6,13 +6,12 @@ import Gallery from './Gallery'
 import Reviews from './Reviews'
 import BookHouse from './Booking'
 
-function House() {
+function House({ id }) {
   const [house, setHouse] = useState(undefined)
 
   const getHouse = async () => {
     let { data } = await axios.get('https://haiku-bnb.onrender.com/houses/1')
 
-    console.log(data)
     setHouse(data)
 
     return house

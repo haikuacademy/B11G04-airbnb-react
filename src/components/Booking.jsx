@@ -8,38 +8,24 @@ function BookHouse({ house, id }) {
   const [totalPrice, setTotalPrice] = useState(0)
   const [newBooking, setNewBooking] = useState(false)
 
-  const createBooking = (e) => {
+  const createBooking = async (e) => {
     e.preventDefault()
-    console.log(id)
 
-    // console.log(e.target)
-    const bookingContent = {
-      house_id: id.value,
-      from_date: e.target.checkIn.value,
-      to_date: e.target.checkOut.value,
-      message: e.target.message.value
-    }
-    console.log(bookingContent)
+    let form = new FormData(e.target)
+    let formObject = Object.fromEntries(form.entries())
 
-    let postBooking = async () => {
-      let apiResponse = await axios.post(
-        `https://haiku-bnb.onrender.com/bookings`,
-        {
-          house_id: id,
-          from_date: bookingContent.from_date,
-          to_date: bookingContent.to_date,
-          message: bookingContent.message
-        }
-      )
-      setNewBooking(true)
-
-      //   console.log(postBooking(id))
-
-      return apiResponse.data
+    let apiResponse = await axios.post(
+      `https://haiku-bnb.onrender.com/bookings`,
+      formObject
+    )
+    setNewBooking(true)
+    if (apiResponse.data.error) {
+      console.log(apiResponse.data.error)
     }
 
-    postBooking(bookingContent)
-    // console.log(bookingContent)
+    console.log(apiResponse.data.message)
+
+    return apiResponse.data
   }
 
   useEffect(() => {

@@ -5,6 +5,8 @@ import {
   faComment
 } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+axios.defaults.withCredentials = true
+
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -54,13 +56,15 @@ function Review({ review }) {
         <HalfStar review={review} />
         <div className="font-bold px-1">{review.rating}</div>
       </div>
-      <p>{review.comment}</p>
+      <p>{review.content}</p>
     </div>
   )
 }
 function Reviews() {
   const { id } = useParams()
   const [reviews, setReviews] = useState([])
+  const [reviewSubmit, setReviewSubmit] = useState(false)
+
   const getReviews = async () => {
     let { data } = await axios.get(
       'https://haiku-bnb.onrender.com/reviews' + (id ? '?house_id=' + id : '')
@@ -70,6 +74,26 @@ function Reviews() {
   useEffect(() => {
     getReviews()
   }, [])
+
+  const createReview = async (e) => {
+    e.preventDefault()
+    let form = new FormData(e.target)
+    let formObject = Object.fromEntries(form.entries())
+    formObject.house_id = id
+    console.log(formObject)
+
+    let apiResponse = await axios.post(
+      'https://haiku-bnb.onrender.com/reviews',
+      formObject
+    )
+
+    console.log(apiResponse.data)
+    setReviewSubmit(true)
+    console.log(reviews)
+    setReviews([...reviews, apiResponse.data])
+    console.log(reviews)
+    return reviews
+  }
   return (
     <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">
@@ -96,34 +120,44 @@ function Reviews() {
         </div>
       </div>
       <div className=" m-6">
-        <div className="p-4 rounded border border-gray-300">
-          <div>Leave a Review</div>
-          <form>
-            <div className=" flex items-center text-yellow-500 mt-2">
+        {reviewSubmit === true ? (
+          <span className="bg-green-200 p-1">Thank you for your review!</span>
+        ) : (
+          <div className="p-4 rounded border border-gray-300">
+            <div>Leave a Review</div>
+            <form onSubmit={(e) => createReview(e)}>
+              <div className=" flex items-center text-yellow-500 mt-2">
+                <div>
+                  <input type="radio" name="rating" value="1" />
+                  <input type="radio" name="rating" value="2" />
+                  <input type="radio" name="rating" value="3" />
+                  <input type="radio" name="rating" value="4" />
+                  <input type="radio" name="rating" value="5" />
+                </div>
+                {/* <FontAwesomeIcon icon={faStar} />
               <FontAwesomeIcon icon={faStar} />
               <FontAwesomeIcon icon={faStar} />
               <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <div className="text-black p-2"> 0</div>
-            </div>
-            <div className="border rounded border-gray-300 mt-3">
-              <div className="">
-                <textarea
-                  rows="4"
-                  className="bg-transparent resize-none outline-none text-gray-300 p-2 "
-                >
-                  Please leave a review...
-                </textarea>
+            <FontAwesomeIcon icon={faStar} /> */}
               </div>
-            </div>
-            <button>
-              <div className=" border border-rounded text-white bg-red-400 mt-1 rounded-md py-2 px-3">
-                Submit Review
+              <div className="border rounded border-gray-300 mt-3">
+                <div className="">
+                  <textarea
+                    name="content"
+                    rows="4"
+                    className="bg-transparent resize-none outline-none p-2 "
+                    placeholder="Please leave a review..."
+                  ></textarea>
+                </div>
               </div>
-            </button>
-          </form>
-        </div>
+              <button>
+                <div className=" border border-rounded text-white bg-red-400 mt-1 rounded-md py-2 px-3">
+                  Submit Review
+                </div>
+              </button>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   )

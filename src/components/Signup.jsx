@@ -28,6 +28,7 @@ function Signup() {
       'https://haiku-bnb.onrender.com/signup',
       formObject
     )
+    console.log(apiResponse.data)
 
     return apiResponse.data
   }

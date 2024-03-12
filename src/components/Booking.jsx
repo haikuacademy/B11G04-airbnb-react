@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import axios from 'axios'
+import { check } from 'prettier'
 
 function BookHouse({ house }) {
   const [startDate, setStartDate] = useState('')
@@ -88,6 +89,13 @@ function BookHouse({ house }) {
               />
             </div>
           </div>
+          {startDate !== '' && endDate !== '' && startDate > endDate ? (
+            <span className="text-red-500">
+              Check in date must be before check out
+            </span>
+          ) : (
+            ''
+          )}
           <textarea
             className="border-2 w-full p-2"
             cols="30"

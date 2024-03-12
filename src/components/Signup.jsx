@@ -3,13 +3,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import axios from 'axios'
-import { response } from 'express'
 axios.defaults.withCredentials = true
 
 function Signup() {
   const [validEmail, setValidEmail] = useState(true)
   const [validPassword, setValidPassword] = useState(true)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const validateEmail = (email) => {
     if ((email.includes('@') && email.includes('.')) || email === '') {
@@ -41,12 +40,12 @@ function Signup() {
       formObject
     )
     console.log(apiResponse.data)
-    if (response.data.error) {
-      return response.data.error
+    if (apiResponse.data.error) {
+      return apiResponse.data.error
     }
 
-    // navigate('/')
-    return apiResponse.data
+    navigate('/')
+    return apiResponse.data.message
   }
 
   return (

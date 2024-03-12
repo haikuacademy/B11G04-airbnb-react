@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 import Nav from './Nav'
 import Gallery from './Gallery'
@@ -7,32 +7,23 @@ import Reviews from './Reviews'
 import BookHouse from './Booking'
 
 function House() {
-  const { id } = useParams()
+  const [house, setHouse] = useState(undefined)
 
-  let house = {
-    location: 'Phuket, Thailand',
-    rooms: 2,
-    bathrooms: 2,
-    description:
-      ' Nestled gracefully against the azure embrace of the ocean, the beautiful house exudes timeless charm and tranquility. Its weathered cedar exterior echoes the hues of the surrounding sand and sky, blending seamlessly with the coastal landscape. Large windows adorn its façade, inviting the golden sunlight to dance within its airy confines. A spacious deck overlooks the endless expanse of turquoise waters, offering panoramic views of rolling waves and distant horizons. Inside, the interiors are bathed in natural light, adorned with rustic furnishings and nautical accents that evoke a sense of seaside serenity. This coastal haven whispers tales of peace and rejuvenation.',
-    price: 300,
-    rating: 4,
-    host: {
-      firstName: 'Linda',
-      lastName: 'Smith',
-      picture: 'https://randomuser.me/api/portraits/women/85.jpg'
-    },
-    images: [
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_08.png',
-      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
-    ]
+  const getHouse = async () => {
+    let { data } = await axios.get('https://haiku-bnb.onrender.com/houses/1')
+
+    console.log(data)
+    setHouse(data)
+
+    return house
+  }
+
+  useEffect(() => {
+    getHouse()
+  }, [])
+
+  if (house === undefined) {
+    return <div> 'loading'</div>
   }
 
   return (
@@ -68,5 +59,4 @@ function House() {
     </div>
   )
 }
-
 export default House

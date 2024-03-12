@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import axios from 'axios'
+import { response } from 'express'
 axios.defaults.withCredentials = true
 
 function Signup() {
   const [validEmail, setValidEmail] = useState(true)
+  const [validPassword, setValidPassword] = useState(true)
+  // const navigate = useNavigate()
 
   const validateEmail = (email) => {
     if ((email.includes('@') && email.includes('.')) || email === '') {
@@ -14,6 +18,14 @@ function Signup() {
     } else {
       console.log('not valid')
       setValidEmail(false)
+    }
+  }
+
+  const validatePassword = (password) => {
+    if (password.length >= 6 || password === '') {
+      setValidPassword(true)
+    } else {
+      setValidPassword(false)
     }
   }
 
@@ -29,7 +41,11 @@ function Signup() {
       formObject
     )
     console.log(apiResponse.data)
+    if (response.data.error) {
+      return response.data.error
+    }
 
+    // navigate('/')
     return apiResponse.data
   }
 
@@ -69,11 +85,21 @@ function Signup() {
           validateEmail(e.target.value)
         }}
       />
-      <label className="mt-2">Password</label>
+      <label className="mt-2">
+        Password{' '}
+        {!validPassword ? (
+          <span className="text-red-500">Invalid Password</span>
+        ) : (
+          ''
+        )}
+      </label>
       <input
         name="password"
         type="password"
         className="rounded px-3.25 py-2.75 border-2 p-1"
+        onChange={(e) => {
+          validatePassword(e.target.value)
+        }}
       />
       <label className="mt-2">Profile Picture</label>
       <input

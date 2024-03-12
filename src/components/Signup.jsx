@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-import bcrypt from 'bcrypt'
 import axios from 'axios'
 axios.defaults.withCredentials = true
 
@@ -18,28 +17,18 @@ function Signup() {
     }
   }
 
-  const submitForm = async (
-    first_name,
-    last_name,
-    email,
-    password,
-    picture
-  ) => {
+  const submitForm = async (e) => {
     e.preventDefault()
 
-    const salt = await bcrypt.genSalt(10)
-    const hashPassword = await bcrypt.hash(password, salt)
+    let form = new FormData(e.target)
+
+    let formObject = Object.fromEntries(form.entries())
 
     let apiResponse = await axios.post(
       'https://haiku-bnb.onrender.com/signup',
-      {
-        first_name,
-        last_name,
-        email,
-        hashPassword,
-        picture
-      }
+      formObject
     )
+
     return apiResponse.data
   }
 

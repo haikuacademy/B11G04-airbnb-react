@@ -18,8 +18,6 @@ function BookingComponent({ booking }) {
 
 function HouseCard({ listing, house }) {
   console.log(house.house_id) // House ID returns undefined here for some reason
-  console.log(house.location)
-  console.log(house.rooms)
   return (
     <div className=" border rounded hover:shadow">
       <Link to={`houses/${house.house_id}`}>

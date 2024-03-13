@@ -1,6 +1,7 @@
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+axios.defaults.withCredentials = true
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -22,6 +23,13 @@ function HouseEdit() {
     getHouseFields()
     console.log(houseFields)
   }, [])
+  const updateHouse = async () => {
+    e.preventDefault()
+    let { data } = await axios.get(
+      'https://haiku-bnb.onrender.com/reviews' + (id ? '?house_id=' + id : '')
+    )
+    setReviews(data)
+  }
   let house = {
     location: houseFields.location,
     rooms: houseFields.rooms,
@@ -35,7 +43,10 @@ function HouseEdit() {
   return (
     <div className="container mx-auto">
       <Nav />
-      <form className="p-4 mx-2 border-2 rounded">
+      <form
+        onSubmit={(e) => updateHouse(e)}
+        className="p-4 mx-2 border-2 rounded"
+      >
         <h1 className="my-1 text-2xl">List a house</h1>
         <div className="grid grid-cols-2">
           <div className="mr-28">

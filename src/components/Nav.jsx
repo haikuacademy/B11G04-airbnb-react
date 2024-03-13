@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 function Nav() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn')
   return (
     <div className="flex justify-between">
       <div>

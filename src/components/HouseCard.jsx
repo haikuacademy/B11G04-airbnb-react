@@ -17,6 +17,9 @@ function BookingComponent({ booking }) {
 }
 
 function HouseCard({ listing, house }) {
+  console.log(house.house_id) // House ID returns undefined here for some reason
+  console.log(house.location)
+  console.log(house.rooms)
   return (
     <div className=" border rounded hover:shadow">
       <Link to={`houses/${house.house_id}`}>
@@ -52,8 +55,18 @@ function HouseCard({ listing, house }) {
       </Link>
       {listing ? (
         <span>
-          <button className="px-2 py-1 border-2 rounded  mr-1">View</button>
-          <button className="px-2 py-1 border-2 rounded">Edit</button>
+          <Link
+            to={`houses/${house.house_id}`}
+            className="px-2 py-1 border-2 rounded mr-1"
+          >
+            View
+          </Link>
+          <Link
+            to={`houses/${house.house_id}/edit`}
+            className="px-2 py-1 border-2 rounded"
+          >
+            Edit
+          </Link>
         </span>
       ) : (
         ''

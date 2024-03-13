@@ -1,6 +1,6 @@
 import Nav from './Nav'
 import HouseCard from './HouseCard'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 axios.defaults.withCredentials = true
 
@@ -109,12 +109,20 @@ function EditListing({ error, createHouse }) {
 function Listings() {
   const [error, setError] = useState('')
   const [listings, setListings] = useState([])
+
+  const getListings = async () => {
+    let { data } = await axios.get('https://haiku-bnb.onrender.com/listings')
+    setListings(data)
+  }
+  useEffect(() => {
+    getListings()
+  }, [])
+
   async function createHouse(e) {
     e.preventDefault()
     let form = new FormData(e.target)
     let formObject = Object.fromEntries(form.entries())
     formObject.photos = form.getAll('photos')
-    console.log(formObject)
     const apiResponse = await axios.post(
       'https://haiku-bnb.onrender.com/houses',
       {
@@ -129,15 +137,15 @@ function Listings() {
     if (apiResponse.data.error) {
       setError(apiResponse.data.error)
     } else {
-      listings = apiResponse.data
-      console.log(listings)
-      setListings(listings)
+      let newHouseObject = apiResponse.data
+      setListings(listings.push(newHouseObject))
     }
   }
+
   return (
     <div className="container mx-auto">
       <Nav />
-      <EditListing />
+      <EditListing createHouse={createHouse} error={error} />
       <div className="grid grid-cols-5 gap-4 mx-2">
         {listings.map((house, id) => (
           <HouseCard house={house} listing={true} key={id} />

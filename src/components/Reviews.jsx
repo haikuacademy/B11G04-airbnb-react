@@ -59,17 +59,20 @@ function Review({ review }) {
   )
 }
 function Reviews() {
+  const [rating, setRating] = useState(0)
   const { id } = useParams()
   const [reviews, setReviews] = useState([])
   const getReviews = async () => {
     let { data } = await axios.get(
       'https://haiku-bnb.onrender.com/reviews' + (id ? '?house_id=' + id : '')
     )
+
     setReviews(data)
   }
   useEffect(() => {
     getReviews()
   }, [])
+
   return (
     <div className="container mx-auto grid grid-cols-3 gap-36 border-t-2">
       <div className="flex flex-col col-span-2">
@@ -82,10 +85,13 @@ function Reviews() {
             <h1 className="text-lg font-bold">34 Reviews</h1>
           </div>
           <div className="flex items-center">
-            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-            <FontAwesomeIcon icon={faStarHalf} className="text-yellow-500" />
+            {Array.from({ length: 5 }).map((_, index) => (
+              <FontAwesomeIcon
+                key={index}
+                icon={index < 4 ? faStar : faStarHalf}
+                className="text-yellow-500"
+              />
+            ))}
             <p>4.5</p>
           </div>
           <div className="flex flex-col gap-1 ">
@@ -100,13 +106,19 @@ function Reviews() {
           <div>Leave a Review</div>
           <form>
             <div className=" flex items-center text-yellow-500 mt-2">
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <div className="text-black p-2"> 0</div>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={faStar}
+                  className={`cursor-pointer ${
+                    rating >= index + 1 ? 'text-yellow-500' : 'text-gray-300'
+                  }`}
+                  onClick={() => setRating(index + 1)}
+                />
+              ))}
+              <div className="text-black p-2"> {rating}</div>
             </div>
+
             <div className="border rounded border-gray-300 mt-3">
               <div className="">
                 <textarea

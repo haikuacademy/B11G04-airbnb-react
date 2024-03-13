@@ -1,35 +1,36 @@
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 //House Edit
 // Copy the house object from the House.jsx component to HouseEdit.jsx
 // Use the object data to replace the hardcoded values in the UI
 
 function HouseEdit() {
+  const { id } = useParams()
+  const [houseFields, setHouseFields] = useState({})
+  const getHouseFields = async () => {
+    let { data } = await axios.get(
+      `https://haiku-bnb.onrender.com/houses/${id}`
+    )
+    setHouseFields(data)
+    console.log(data)
+  }
+  useEffect(() => {
+    getHouseFields()
+    console.log(houseFields)
+  }, [])
   let house = {
-    location: 'Bali, Indonesia',
-    rooms: 2,
-    bathrooms: 2,
-    description:
-      ' Nestled gracefully against the azure embrace of the ocean, the beautiful house exudes timeless charm and tranquility. Its weathered cedar exterior echoes the hues of the surrounding sand and sky, blending seamlessly with the coastal landscape. Large windows adorn its façade, inviting the golden sunlight to dance within its airy confines. A spacious deck overlooks the endless expanse of turquoise waters, offering panoramic views of rolling waves and distant horizons. Inside, the interiors are bathed in natural light, adorned with rustic furnishings and nautical accents that evoke a sense of seaside serenity. This coastal haven whispers tales of peace and rejuvenation.',
-    price: 300,
-    rating: 4,
-    host: {
-      firstName: 'Linda',
-      lastName: 'Smith',
-      picture: 'https://randomuser.me/api/portraits/women/85.jpg'
-    },
-    photos: [
-      'https://www.haikuacademy.com/photos/01.png',
-      'https://www.haikuacademy.com/photos/02.png',
-      'https://www.haikuacademy.com/photos/03.png',
-      'https://www.haikuacademy.com/photos/04.png',
-      'https://www.haikuacademy.com/photos/05.png',
-      'https://www.haikuacademy.com/photos/06.png',
-      'https://www.haikuacademy.com/photos/07.png',
-      'https://www.haikuacademy.com/photos/08.png',
-      'https://www.haikuacademy.com/photos/09.png'
-    ]
+    location: houseFields.location,
+    rooms: houseFields.rooms,
+    bathrooms: houseFields.bathrooms,
+    description: houseFields.description,
+    price: houseFields.price,
+    rating: houseFields.rating,
+    host: houseFields.host,
+    photos: [houseFields.images]
   }
   return (
     <div className="container mx-auto">

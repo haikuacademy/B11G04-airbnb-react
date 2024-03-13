@@ -7,7 +7,7 @@ import axios from 'axios'
 function Profile() {
   const [user, setUser] = useState({})
   const [picture, setPicture] = useState('')
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const logout = async (e) => {
     e.preventDefault()
@@ -15,6 +15,7 @@ function Profile() {
       const { data } = await axios.get('https://haiku-bnb.onrender.com/profile')
       console.log({ data })
       localStorage.removeItem('is LoggedIn ')
+      navigate('/login')
     } catch (err) {
       alert(err.message)
     }
@@ -100,7 +101,7 @@ function Profile() {
           Save Changes
         </button>
         <button
-          onClick={(e) => logout()}
+          onClick={(e) => logout(e)}
           className="rounded p-3 mt-6 text-black w-32 bg-white"
         >
           Logout
